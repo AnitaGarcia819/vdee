@@ -7,9 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVKit/AVKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface ViewController : UIViewController
 
+@interface ViewController : UIViewController <AVPlayerViewControllerDelegate>{
+    
+    
+}
+
+@property(nonatomic,strong) AVPlayer *player;
+@property(nonatomic,strong) AVPlayerItem *playerItem;
+
+@property (weak, nonatomic) IBOutlet UIButton *play_button;
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loading;
 
 @end
-

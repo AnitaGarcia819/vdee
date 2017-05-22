@@ -1,25 +1,164 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--El Evangelio Eterno-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController title="El Evangelio Eterno" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="clip" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QoZ-es-uRr">
+                                <rect key="frame" x="103" y="20" width="221" height="34"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="El Evangelio Eterno">
+                                        <attributes>
+                                            <color key="NSColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="25" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="vdee_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="SxD-up-BNs">
+                                <rect key="frame" x="-49" y="71" width="466" height="142"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="142" id="fVQ-o6-Yg3"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="clip" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8J9-JN-sBT">
+                                <rect key="frame" x="76" y="617" width="258" height="26.5"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Música para orar: 3am-7am ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.28313154450261779" green="0.28313154450261779" blue="0.28313154450261779" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="truncatingTail" baseWritingDirection="natural" paragraphSpacingBefore="1" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="clip" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Haj-PS-TsA">
+                                <rect key="frame" x="20" y="652.5" width="372" height="25"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Predicaciones (30 min): 7:00 am, 9:00am,">
+                                        <attributes>
+                                            <color key="NSColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="HelveticaNeue"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="clip" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4i-FX-RIS">
+                                <rect key="frame" x="97" y="685" width="225" height="30.5"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="12:00 pm, 3:00 pm, 6:00 pm, 9:00 pm">
+                                        <attributes>
+                                            <color key="NSColor" red="0.29803921568627451" green="0.29803921568627451" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="clip" minimumScaleFactor="0.55000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="lWZ-I5-qfC">
+                                <rect key="frame" x="20" y="584" width="384" height="36.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Programación Díaria (Hora Pacífico)">
+                                        <attributes>
+                                            <color key="NSColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="35" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="wdX-dP-8Df">
+                                <rect key="frame" x="128" y="260" width="194" height="286"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                                <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="play.png">
+                                    <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="play_button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bjh-Tg-fII"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="lWZ-I5-qfC" firstAttribute="top" secondItem="wdX-dP-8Df" secondAttribute="bottom" constant="38" id="2TE-2A-Tsm"/>
+                            <constraint firstItem="Haj-PS-TsA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="2" id="3T2-uH-vur"/>
+                            <constraint firstItem="QoZ-es-uRr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Cs1-f8-mww"/>
+                            <constraint firstItem="Haj-PS-TsA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="2" id="Dgp-3p-7ny"/>
+                            <constraint firstItem="Haj-PS-TsA" firstAttribute="top" secondItem="8J9-JN-sBT" secondAttribute="bottom" constant="8.5" id="HUP-ri-ZbF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QoZ-es-uRr" secondAttribute="trailing" constant="70" id="JQZ-yT-Wh1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="B4i-FX-RIS" secondAttribute="trailing" constant="70" id="PG5-Oh-FtN"/>
+                            <constraint firstItem="QoZ-es-uRr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="RKf-rE-3xb"/>
+                            <constraint firstItem="B4i-FX-RIS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="79" id="T0f-g6-fb8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SxD-up-BNs" secondAttribute="trailing" constant="-47" id="V9l-G3-GWX"/>
+                            <constraint firstItem="B4i-FX-RIS" firstAttribute="top" secondItem="Haj-PS-TsA" secondAttribute="bottom" constant="8" id="XAK-gK-sqb"/>
+                            <constraint firstItem="SxD-up-BNs" firstAttribute="top" secondItem="QoZ-es-uRr" secondAttribute="bottom" constant="18" id="ZKB-Dh-1Hn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8J9-JN-sBT" secondAttribute="trailing" constant="58" id="axw-yf-BgJ"/>
+                            <constraint firstItem="wdX-dP-8Df" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="108" id="cab-Hn-eDG"/>
+                            <constraint firstItem="QoZ-es-uRr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="83" id="dEE-Ml-mTq"/>
+                            <constraint firstItem="Haj-PS-TsA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="52" id="dPz-f6-5Tk"/>
+                            <constraint firstItem="wdX-dP-8Df" firstAttribute="top" secondItem="SxD-up-BNs" secondAttribute="bottom" constant="47" id="fhT-je-DbP"/>
+                            <constraint firstItem="SxD-up-BNs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-45" id="gR2-mr-NxY"/>
+                            <constraint firstItem="8J9-JN-sBT" firstAttribute="top" secondItem="lWZ-I5-qfC" secondAttribute="bottom" constant="8" id="gai-ry-aA8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lWZ-I5-qfC" secondAttribute="trailing" constant="54" id="iwd-um-Jhy"/>
+                            <constraint firstItem="lWZ-I5-qfC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="52" id="ixm-dH-8Qa"/>
+                            <constraint firstItem="8J9-JN-sBT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="58" id="lz3-5A-SYL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wdX-dP-8Df" secondAttribute="trailing" constant="72" id="sEK-LG-mDB"/>
+                            <constraint firstItem="Haj-PS-TsA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="2" id="uAI-f5-Y88"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Haj-PS-TsA" secondAttribute="trailing" id="wLd-8L-OdH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Haj-PS-TsA" secondAttribute="trailing" id="xyb-50-Zt4"/>
+                        </constraints>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="QoZ-es-uRr"/>
+                                <include reference="8J9-JN-sBT"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="QoZ-es-uRr"/>
+                                <include reference="8J9-JN-sBT"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="play_button" destination="wdX-dP-8Df" id="fEW-oc-IK2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-5" y="161"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="play.png" width="225" height="225"/>
+        <image name="vdee_logo.png" width="2897" height="1537"/>
+    </resources>
 </document>
