@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F1AB9DC1EDB7DCA00C1FC11 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1AB9DB1EDB7DCA00C1FC11 /* SystemConfiguration.framework */; };
 		8F7063211ECBFCCD0048D17E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7063201ECBFCCD0048D17E /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		8F95CFAA1EC8F31800CF80B2 /* cover_photo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8F95CFA91EC8F31800CF80B2 /* cover_photo.jpg */; };
 		8F95CFAE1EC9017000CF80B2 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F95CFAC1EC9017000CF80B2 /* play.png */; };
@@ -22,6 +23,7 @@
 		8FF967CE1ED2046D00FB924C /* vdee_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FF967CD1ED2046D00FB924C /* vdee_logo.png */; };
 		8FF967D31ED3915600FB924C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF967D11ED3915600FB924C /* Fabric.framework */; };
 		8FF967D41ED3915600FB924C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF967D21ED3915600FB924C /* Crashlytics.framework */; };
+		8FF967D91ED3CE6300FB924C /* Reachabiliy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF967D81ED3CE6300FB924C /* Reachabiliy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F1AB9DB1EDB7DCA00C1FC11 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8F7063201ECBFCCD0048D17E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8F95CFA91EC8F31800CF80B2 /* cover_photo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cover_photo.jpg; sourceTree = "<group>"; };
 		8F95CFAC1EC9017000CF80B2 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
@@ -65,6 +68,8 @@
 		8FF967CD1ED2046D00FB924C /* vdee_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vdee_logo.png; sourceTree = "<group>"; };
 		8FF967D11ED3915600FB924C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		8FF967D21ED3915600FB924C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		8FF967D71ED3CE0A00FB924C /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		8FF967D81ED3CE6300FB924C /* Reachabiliy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachabiliy.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F1AB9DC1EDB7DCA00C1FC11 /* SystemConfiguration.framework in Frameworks */,
 				8F7063211ECBFCCD0048D17E /* AudioToolbox.framework in Frameworks */,
 				8FF967D41ED3915600FB924C /* Crashlytics.framework in Frameworks */,
 				8FF967D31ED3915600FB924C /* Fabric.framework in Frameworks */,
@@ -98,6 +104,7 @@
 		8FC310531EC04F5400CFBC40 = {
 			isa = PBXGroup;
 			children = (
+				8F1AB9DB1EDB7DCA00C1FC11 /* SystemConfiguration.framework */,
 				8FF967D11ED3915600FB924C /* Fabric.framework */,
 				8FF967D21ED3915600FB924C /* Crashlytics.framework */,
 				8F7063201ECBFCCD0048D17E /* AudioToolbox.framework */,
@@ -121,6 +128,8 @@
 		8FC3105E1EC04F5400CFBC40 /* vdee */ = {
 			isa = PBXGroup;
 			children = (
+				8FF967D81ED3CE6300FB924C /* Reachabiliy.m */,
+				8FF967D71ED3CE0A00FB924C /* Reachability.h */,
 				8FC310621EC04F5400CFBC40 /* AppDelegate.h */,
 				8FC310631EC04F5400CFBC40 /* AppDelegate.m */,
 				8FC310651EC04F5400CFBC40 /* ViewController.h */,
@@ -322,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FC310671EC04F5400CFBC40 /* ViewController.m in Sources */,
+				8FF967D91ED3CE6300FB924C /* Reachabiliy.m in Sources */,
 				8FC310641EC04F5400CFBC40 /* AppDelegate.m in Sources */,
 				8FC310611EC04F5400CFBC40 /* main.m in Sources */,
 			);

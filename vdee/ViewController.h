@@ -18,9 +18,8 @@
 
 @property(nonatomic,strong) AVPlayer *player;
 @property(nonatomic,strong) AVPlayerItem *playerItem;
-
 @property (weak, nonatomic) IBOutlet UIButton *play_button;
-
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loading;
+@property (weak, nonatomic) IBOutlet UILabel *internetOutageMessage0;
 
 @end

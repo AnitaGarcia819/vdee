@@ -7,6 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "Reachability.h"
+
+@interface ViewController ()
+{
+    Reachability *reach;
+}
+@end
 
 @interface ViewController ()
 
@@ -14,6 +21,7 @@
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicatorView;
 @property (nonatomic, retain) UIView *loadingView;
 @property (nonatomic, retain) UILabel *loadingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *internetMessage;
 
 @end
 
@@ -21,14 +29,18 @@
 @synthesize player;
 @synthesize playerItem;
 @synthesize play_button;
+@synthesize internetOutageMessage0;
 
 BOOL isPaused = true;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from
+    
+    [self testInternetConnection];
+    
     // Loading view
     self.loadingView = [[UIView alloc] initWithFrame:CGRectMake(75, 155, 170, 170)];
+    self.loadingView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
     self.loadingView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     self.loadingView.clipsToBounds = YES;
     self.loadingView.layer.cornerRadius = 10.0;
@@ -44,8 +56,39 @@ BOOL isPaused = true;
     self.loadingLabel.textColor = [UIColor whiteColor];
     self.loadingLabel.adjustsFontSizeToFitWidth = YES;
     self.loadingLabel.textAlignment = NSTextAlignmentCenter;
-    self.loadingLabel.text = @"Loading...";
+}
 
+-(void) testInternetConnection{
+    // Allocate a reachability object (Checks internet connection)
+   reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    
+    // Set the blocks
+    reach.reachableBlock = ^(Reachability*reach)
+    {
+        // keep in mind this is called on a background thread
+        // and if you are updating the UI it needs to happen
+        // on the main thread, like this:
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            internetOutageMessage0.hidden = TRUE;
+            NSLog(@"REACHABLE!");
+        });
+    };
+    
+    reach.unreachableBlock = ^(Reachability*reach)
+    {
+        //self.loadingLabel.text = @"Compruebe";
+        //[self.activityIndicatorView stopAnimating];
+        //[self.loadingView removeFromSuperview];
+        //[self message_box:@"Compruebe su conexión a Internet y vuelva a intentarlo."];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            internetOutageMessage0.hidden = FALSE;
+            NSLog(@"Compruebe su conexión a Internet y vuelva a intentarlo.");
+        });
+    };
+    
+    // Start the notifier, which will cause the reachability object to retain itself!
+    [reach startNotifier];
 }
 
 - (IBAction)play_button:(id)sender {
@@ -58,11 +101,9 @@ BOOL isPaused = true;
             //[self.player.currentItem addObserver:self forKeyPath:@"status" options:0 context:nil];
             
             // Loading box is shown
-            [self.loadingView addSubview:self.loadingLabel];
-            [self.view addSubview:self.loadingView];
+            [self message_box:@"Loading. . . "];
             [self.activityIndicatorView startAnimating];
             
-
             // Background thread checks if player is ready to play
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
               
@@ -107,6 +148,13 @@ BOOL isPaused = true;
         [play_button setImage:stopImg forState:UIControlStateNormal];
         isPaused = false;
     }
+}
+
+- (void) message_box:( NSString *) message
+{
+    [self.loadingView addSubview:self.loadingLabel];
+    [self.view addSubview:self.loadingView];
+    self.loadingLabel.text = message;
 }
 
 - (void)didReceiveMemoryWarning {
