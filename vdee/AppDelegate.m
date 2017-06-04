@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,8 +17,14 @@
 
 @implementation AppDelegate
 
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [[UIApplication sharedApplication]
+     setMinimumBackgroundFetchInterval:
+     UIApplicationBackgroundFetchIntervalMinimum];
+    //[application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+    
+    // Override point for customization after application launch.
     [Fabric with:@[[Crashlytics class]]];
     
     // Override point for customization after application launch.
@@ -34,9 +41,55 @@
     // 2. Changing the default output audio route
     UInt32 doChangeDefaultRoute = 1;
     AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
-
+    
     return YES;
 }
+-(void)application:(UIApplication *)application
+performFetchWithCompletionHandler:
+(void (^)(UIBackgroundFetchResult))completionHandler {
+    
+    NSLog(@"Background fetch started...");
+    //---do background fetch here---
+    // You have up to 30 seconds to perform the fetch
+    
+    ViewController * vc = [[ViewController alloc]init];
+    [vc checkInternetConnection];
+    
+    BOOL downloadSuccessful = YES;
+    
+    if (downloadSuccessful) {
+        //---set the flag that data is successfully downloaded---
+        completionHandler(UIBackgroundFetchResultNewData);
+    } else {
+        //---set the flag that download is not successful---
+        completionHandler(UIBackgroundFetchResultFailed);
+    }
+    
+    NSLog(@"Background fetch completed...");
+}
+
+
+/*
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [Fabric with:@[[Crashlytics class]]];
+    
+    // Override point for customization after application launch.
+    // Set AudioSession
+    NSError *sessionError = nil;
+    [[AVAudioSession sharedInstance] setDelegate:self];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:&sessionError];
+    
+    // Pick any one of them
+    // 1. Overriding the output audio route
+    //UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
+    //AudioSessionSetProperty(kAudioSessionProperty_OverrideAudioRoute, sizeof(audioRouteOverride), &audioRouteOverride);
+    
+    // 2. Changing the default output audio route
+    UInt32 doChangeDefaultRoute = 1;
+    AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
+    
+    return YES;
+}*/
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -59,5 +112,8 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+
 
 @end

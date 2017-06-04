@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Reachability.h"
+#import "AppDelegate.h"
 
 @interface ViewController ()
 {
@@ -31,12 +32,21 @@
 @synthesize play_button;
 @synthesize internetOutageMessage0;
 
-BOOL isPaused = true;
+BOOL isPlaying = false;
+BOOL noInternet = false;
+BOOL wasInterupted = false;
+
+
+- (BOOL)canBecomeFirstResponder { return YES; }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self testInternetConnection];
+    // Check Internet connection
+    [self checkInternetConnection];
+    
+    // Internet error message
+    internetOutageMessage0.hidden = TRUE;
     
     // Loading view
     self.loadingView = [[UIView alloc] initWithFrame:CGRectMake(75, 155, 170, 170)];
@@ -56,11 +66,103 @@ BOOL isPaused = true;
     self.loadingLabel.textColor = [UIColor whiteColor];
     self.loadingLabel.adjustsFontSizeToFitWidth = YES;
     self.loadingLabel.textAlignment = NSTextAlignmentCenter;
+    
 }
 
--(void) testInternetConnection{
+- (IBAction)play_button:(id)sender {
+    // Removes Internet Error Message
+    internetOutageMessage0.hidden = TRUE;
+    
+    if (!isPlaying) {
+        [self playRadio];
+        
+    }else{
+        // Stops radio
+        player.rate = 0.0;
+        
+        // Display play image from the stop image that is shown while playing
+        UIImage *playImg = [UIImage imageNamed:@"play.png"];
+        [play_button setImage:playImg forState:UIControlStateNormal];
+        isPlaying = false;
+    }
+}
+
+- (void) playRadio{
+    playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.vdee.org:8000/salinas"]]];
+    player = [AVPlayer playerWithPlayerItem:playerItem];
+    [player play];
+    
+    // Loading screen and hide play button while loading
+    [self displayLoadingScreen:@"Cargando. . . "];
+    play_button.hidden = TRUE;
+    
+    // Check if there is an internet connection
+    if (noInternet){
+        [self displayInternetErrorMessage];
+        [self stopLoadingBox];
+        play_button.hidden = FALSE;
+    }
+    else{
+    
+        // Background thread checks if player is ready to play
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+            // Waits until AVPlayer is ready to play
+            while (self.player.currentItem.status !=  AVPlayerItemStatusReadyToPlay){
+            
+                //NSLog(@"Loading");
+                
+            }
+            //NSLog(@"Ready");
+        
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                // stop the activity indicator (you are now on the main queue again)
+                if (player.status ==  AVPlayerItemStatusReadyToPlay){
+                    // Hide loading box
+                    [self stopLoadingBox];
+                
+                    // Show stop image
+                    play_button.hidden = FALSE;
+                    UIImage *stopImg = [UIImage imageNamed:@"stop.png"];
+                    [play_button setImage:stopImg forState:UIControlStateNormal];
+                
+                    // Change play flag
+                    isPlaying = true;
+            }
+        });
+    });
+    }// End of else
+}
+
+- (void)displayInternetErrorMessage {
+    internetOutageMessage0.hidden = FALSE;
+}
+
+- (void)removeInternetErrorMessage{
+    internetOutageMessage0.hidden = TRUE;
+}
+
+- (void)stopLoadingBox {
+    [self.activityIndicatorView stopAnimating];
+    [self.loadingView removeFromSuperview];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void) displayLoadingScreen:( NSString *) message
+{
+    [self.activityIndicatorView startAnimating];
+    [self.loadingView addSubview:self.loadingLabel];
+    [self.view addSubview:self.loadingView];
+    self.loadingLabel.text = message;
+}
+
+- (void) checkInternetConnection{
     // Allocate a reachability object (Checks internet connection)
-   reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    reach = [Reachability reachabilityWithHostname:@"www.google.com"];
     
     // Set the blocks
     reach.reachableBlock = ^(Reachability*reach)
@@ -70,7 +172,16 @@ BOOL isPaused = true;
         // on the main thread, like this:
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            internetOutageMessage0.hidden = TRUE;
+            //internetOutageMessage0.hidden = TRUE;
+            noInternet = FALSE;
+            if(wasInterupted){
+                wasInterupted = FALSE;
+                play_button.hidden = FALSE;
+                [self playRadio];
+            }else{
+                [self stopLoadingBox];
+                 play_button.hidden = FALSE;
+            }
             NSLog(@"REACHABLE!");
         });
     };
@@ -81,85 +192,20 @@ BOOL isPaused = true;
         //[self.activityIndicatorView stopAnimating];
         //[self.loadingView removeFromSuperview];
         //[self message_box:@"Compruebe su conexión a Internet y vuelva a intentarlo."];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
-            internetOutageMessage0.hidden = FALSE;
-            NSLog(@"Compruebe su conexión a Internet y vuelva a intentarlo.");
+            noInternet = TRUE;
+            if(isPlaying){
+                wasInterupted = TRUE;
+                [self displayLoadingScreen:@"Cargando . . ."];
+                play_button.hidden = TRUE;
+            }
+            NSLog(@"UNREACHABLE.");
         });
     };
     
     // Start the notifier, which will cause the reachability object to retain itself!
     [reach startNotifier];
-}
-
-- (IBAction)play_button:(id)sender {
-    
-        if (isPaused) {
-            
-            playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.vdee.org:8000/salinas"]]];
-            player = [AVPlayer playerWithPlayerItem:playerItem];
-            [player play];
-            //[self.player.currentItem addObserver:self forKeyPath:@"status" options:0 context:nil];
-            
-            // Loading box is shown
-            [self message_box:@"Loading. . . "];
-            [self.activityIndicatorView startAnimating];
-            
-            // Background thread checks if player is ready to play
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-              
-               while (self.player.currentItem.status !=  AVPlayerItemStatusReadyToPlay){
-             
-                   //NSLog(@"Loading");
-
-                }
-                //NSLog(@"Ready");
-
-               
-                dispatch_sync(dispatch_get_main_queue(), ^{
-                    // stop the activity indicator (you are now on the main queue again)
-                    if (player.status ==  AVPlayerItemStatusReadyToPlay){
-                        [self.activityIndicatorView stopAnimating];
-                        [self.loadingView removeFromSuperview];
-                        UIImage *stopImg = [UIImage imageNamed:@"stop.png"];
-                        [play_button setImage:stopImg forState:UIControlStateNormal];
-                        isPaused = false;
-                    }
-                });
-            });
-    
-        }else{
-            player.rate = 0.0;
-            UIImage *playImg = [UIImage imageNamed:@"play.png"];
-            [play_button setImage:playImg forState:UIControlStateNormal];
-            isPaused = true;
-            //player = nil;
-        }
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
-                        change:(NSDictionary *)change context:(void *)context {
-    if(self.player.currentItem.status == AVPlayerItemStatusReadyToPlay){
-        //do something
-        
-        NSLog(@"player item status is ready to play");
-        [self.activityIndicatorView stopAnimating];
-        [self.loadingView removeFromSuperview];
-        UIImage *stopImg = [UIImage imageNamed:@"stop.png"];
-        [play_button setImage:stopImg forState:UIControlStateNormal];
-        isPaused = false;
-    }
-}
-
-- (void) message_box:( NSString *) message
-{
-    [self.loadingView addSubview:self.loadingLabel];
-    [self.view addSubview:self.loadingView];
-    self.loadingLabel.text = message;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
