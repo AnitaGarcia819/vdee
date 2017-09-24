@@ -10,15 +10,42 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #import "ViewController.h"
+#import "Reachability.h"
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
+/*
+@synthesize reach;
 
+- (void) reachabilityChanged:(NSNotification *)notice
+{
+    
+    NSLog(@"!!!!!!!!!! CODE IS CALL NOW !!!!!!!!!!");
+    
+    NetworkStatus remoteHostStatus = [reach currentReachabilityStatus];
+    
+    if(remoteHostStatus == NotReachable) {NSLog(@"**** Not Reachable ****");}
+    else if (remoteHostStatus == ReachableViaWiFi) {NSLog(@"**** wifi ****"); }
+    else if (remoteHostStatus == ReachableViaWWAN) {NSLog(@"**** cell ****"); }
+}
+*/
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    /*[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    
+    self.reach = [Reachability reachabilityForInternetConnection]; //retain reach
+    [reach startNotifier];
+    
+    NetworkStatus remoteHostStatus = [reach currentReachabilityStatus];
+    
+    NSLog(@"???? ALWAYS INITS WITH Not Reachable ????");
+    if(remoteHostStatus == NotReachable) {NSLog(@"init **** Not Reachable ****");}
+    else if (remoteHostStatus == ReachableViaWiFi) {NSLog(@"int **** wifi ****"); }
+    else if (remoteHostStatus == ReachableViaWWAN) {NSLog(@"init **** cell ****"); }*/
+    
     [[UIApplication sharedApplication]
      setMinimumBackgroundFetchInterval:
      UIApplicationBackgroundFetchIntervalMinimum];
@@ -44,6 +71,12 @@
     
     return YES;
 }
+
+-(void)dealloc{
+    //[reach release];
+    //[super dealloc];
+}
+
 -(void)application:(UIApplication *)application
 performFetchWithCompletionHandler:
 (void (^)(UIBackgroundFetchResult))completionHandler {
@@ -112,8 +145,5 @@ performFetchWithCompletionHandler:
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
-
-
 
 @end

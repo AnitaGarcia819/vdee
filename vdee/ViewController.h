@@ -10,7 +10,7 @@
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-
+//UIActivityIndicatorView *indicator;
 
 @interface ViewController : UIViewController <AVPlayerViewControllerDelegate>{
 
@@ -23,5 +23,6 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loading;
 @property (weak, nonatomic) IBOutlet UILabel *internetOutageMessage0;
 
-- (void) checkInternetConnection;
+
+- (BOOL) checkInternetConnection;
 @end
