@@ -31,6 +31,7 @@ BOOL isPlaying = false;
 BOOL isLoading = false;
 BOOL noInternet = false;
 BOOL wasInterupted = false;
+//Reachability *reach;
 
 - (BOOL)canBecomeFirstResponder { return YES;}
 
@@ -39,17 +40,17 @@ BOOL wasInterupted = false;
     
     // Check Internet connection
     // Allocate a reachability object (Checks internet connection)
-    // [self checkInternetConnection];
+    [self setupInternetConnection];
     
     // Internet error message
     internetOutageMessage0.hidden = TRUE;
     
     // Connect loading view with scroll view
-    self.scrollView.pagingEnabled = YES;
+    //self.scrollView.pagingEnabled = YES;
    
     // Loading view
     self.loadingView = [[UIView alloc] initWithFrame:CGRectMake(145, 145, 145, 145)];
-    self.loadingView.center = CGPointMake(self.scrollView.frame.size.width/2, self.view.frame.size.height/2);
+    self.loadingView.center = CGPointMake(self.scrollView.frame.size.width/2, self.scrollView.frame.size.height/3);
     self.loadingView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     self.loadingView.clipsToBounds = YES;
     self.loadingView.layer.cornerRadius = 10.0;
@@ -61,6 +62,15 @@ BOOL wasInterupted = false;
                                                   self.activityIndicatorView.bounds.size.width,
                                                   self.activityIndicatorView.bounds.size.height);
     [self.loadingView addSubview:self.activityIndicatorView];
+    
+    //TEMP
+    /*
+    play_button.hidden = TRUE;
+    [self.activityIndicatorView startAnimating];
+    [self.loadingView addSubview:self.loadingLabel];
+    [self.scrollView addSubview:self.loadingView];
+    self.loadingLabel.text = @"LOADING";
+    */
     
     //Loading label
     self.loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 115, 130, 22)];
@@ -78,59 +88,39 @@ BOOL wasInterupted = false;
         [self playRadio];
         
     }else{
-        // Stops radio
-        player.rate = 0.0;
-        
-        // Display play image from the stop image that is shown while playing
-        [self changeButtonImg:@"play.png"];
-        isPlaying = false;
+        [self stopRadio];
     }
 }
 
+- (void) stopRadio{
+    // Stops radio
+    player.rate = 0.0;
+    // Display play image from the stop image that is shown while playing
+    [self changeButtonImg:@"play.png"];
+    isPlaying = false;
+}
 - (void) playRadio {
-    // Loading screen and hide play button while loading
-    [self displayLoadingScreen:@"Cargando. . . "];
-    
     // Check for conectivity
-    if(![self checkInternetConnection]){
-        NSLog(@"(playRadio) WAS UNREACHABLE, NOW CHECKING....");
+    if(!([self setupInternetConnection])){
+        NSLog(@"(playRadio) Not ready to play");
         // Let user know no internet connection is established
         [self displayInternetErrorMessage];
         // Stop loading img
         //TODO: Add timer to this
-        [self stopLoadingBox];
+        if(isLoading){
+            [self stopLoadingBox];
+        }
         // Change image back to play img
         [self changeButtonImg:@"play.png"];
         // Check internet connection
-        [self checkInternetConnection];
+        [self setupInternetConnection];
         // TODO: Make a call to check connectivity
     }
     else{
         NSLog(@"(playRadio) WAS REACHABLE");
+        //[self removeInternetErrorMessage];
         [self activateRadio];
-        
-        // Background thread checks if player is ready to play
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            // Waits until AVPlayer is ready to play
-            while (self.player.currentItem.status !=  AVPlayerItemStatusReadyToPlay){
-                //NSLog(@"Loading");
-            }
-            NSLog(@"(playRadio) Ready to play");
-        
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                // stop the activity indicator (you are now on the main queue again)
-                if (player.status ==  AVPlayerItemStatusReadyToPlay){
-                    // Hide loading box
-                    [self stopLoadingBox];
-                
-                    // Show stop image
-                    [self changeButtonImg:@"stop.png"];
-                
-                    // Change play flag
-                    isPlaying = true;
-            }
-        });
-    });
+    
     }// End if else
 }
 
@@ -169,33 +159,61 @@ BOOL wasInterupted = false;
 }
 
 - (void) activateRadio {
+     [self displayLoadingScreen:@"Cargando. . . "];
     // Play radio
     playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.vdee.org:8000/salinas"]]];
     player = [AVPlayer playerWithPlayerItem:playerItem];
     [player play];
+    
+    // Background thread checks if player is ready to play
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // Waits until AVPlayer is ready to play
+        while (self.player.currentItem.status !=  AVPlayerItemStatusReadyToPlay){
+            //NSLog(@"Loading");
+        }
+        NSLog(@"(playRadio) Ready to play");
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            // stop the activity indicator (you are now on the main queue again)
+            if (player.status ==  AVPlayerItemStatusReadyToPlay){
+                // Hide loading box
+                [self stopLoadingBox];
+                
+                // Show stop image
+                [self changeButtonImg:@"stop.png"];
+                
+                // Change play flag
+                isPlaying = true;
+            }
+        });
+    });
 }
 
-- (BOOL) checkInternetConnection {
-     NSLog(@"CHECKING INTERNET CONNECTION");
+- (BOOL) setupInternetConnection {
+    // Loading screen and hide play button while loading
+    NSLog(@"CHECKING INTERNET CONNECTION");
     // Allocate a reachability object (Checks internet connection)
-    Reachability *reach = [Reachability reachabilityWithHostname:@"google.com"];
+    Reachability *reach = [Reachability reachabilityWithHostname:@"http://www.google.com"];
     // Start the notifier, which will cause the reachability object to retain itself!
     [reach startNotifier];
-
+    
     // Set the blocks
     reach.reachableBlock = ^(Reachability*reach) {
         // keep in mind this is called on a background thread
         // and if you are updating the UI it needs to happen
         // on the main thread, like this:
         NSLog(@"Reachable Block: ON");
-        [self activateRadio];
+        //[self activateRadio];
         
         dispatch_async(dispatch_get_main_queue(), ^ {
             // Check if phone is recovering from an interuption
             if(isLoading){
                 [self stopLoadingBox];
-                play_button.hidden = FALSE;
+                [self activateRadio];
+                //play_button.hidden = FALSE;
+                //player.rate = 0.0;
             }
+            
             [self removeInternetErrorMessage];
             NSLog(@"REACHABLE!");
         });
@@ -210,21 +228,26 @@ BOOL wasInterupted = false;
         
         dispatch_async(dispatch_get_main_queue(), ^{
             // Checks for internet interuption
-            if(isLoading){
+            /*if(isLoading){
                 NSLog(@"Reachability: INTERUPTION");
                 [self stopLoadingBox];
-            }
+            }*/
             // Show correct image
             if(isPlaying){
-                [self changeButtonImg:@"play.png"];
+                //[self changeButtonImg:@"play.png"];
+                [self displayLoadingScreen:@"Cargando. . . "];
                 isPlaying = FALSE;
+                isLoading = TRUE;
             }
-            // change to play?
-            [self displayInternetErrorMessage];
             NSLog(@"UNREACHABLE.");
         });
     };
     return reach.isReachable;
+}
+
+- (BOOL) checkInternetConnection {
+   // return reach.isReachable;
+    return true;
 }
 @end
 
