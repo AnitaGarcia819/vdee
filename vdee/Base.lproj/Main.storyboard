@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJ1-xb-5S9">
-                                <rect key="frame" x="-66" y="20" width="506" height="900"/>
+                                <rect key="frame" x="-66" y="40" width="506" height="900"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="wdX-dP-8Df">
                                         <rect key="frame" x="158" y="194" width="225" height="225"/>
@@ -253,46 +253,7 @@
                                                 <attributes>
                                                     <color key="NSColor" red="0.29804000000000003" green="0.29804000000000003" blue="0.29804000000000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <font key="NSFont" size="20" name="HelveticaNeue"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                        <tabStops>
-                                                            <textTab alignment="left" location="28">
-                                                                <options/>
-                                                            </textTab>
-                                                            <textTab alignment="left" location="56">
-                                                                <options/>
-                                                            </textTab>
-                                                            <textTab alignment="left" location="84">
-                                                                <options/>
-                                                            </textTab>
-                                                            <textTab alignment="left" location="112">
-                                                                <options/>
-                                                            </textTab>
-                                                            <textTab alignment="left" location="140">
-                                                                <options/>
-                                                            </textTab>
-                                                            <textTab alignment="left" location="168">
-                                                                <options/>
-                                                            </textTab>
-                                                            <textTab alignment="left" location="196">
-                                                                <options/>
-                                                            </textTab>
-                                                            <textTab alignment="left" location="224">
-                                                                <options/>
-                                                            </textTab>
-                                                            <textTab alignment="left" location="252">
-                                                                <options/>
-                                                            </textTab>
-                                                            <textTab alignment="left" location="280">
-                                                                <options/>
-                                                            </textTab>
-                                                            <textTab alignment="left" location="308">
-                                                                <options/>
-                                                            </textTab>
-                                                            <textTab alignment="left" location="336">
-                                                                <options/>
-                                                            </textTab>
-                                                        </tabStops>
-                                                    </paragraphStyle>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -371,6 +332,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5.5999999999999996" y="160.11994002998503"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="3kl-mf-OjO">
+            <objects>
+                <viewController id="L0c-zc-Jbp" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ybp-m9-NrM"/>
+                        <viewControllerLayoutGuide type="bottom" id="SS6-Us-xh8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6L0-Ak-dey">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6Ug-iZ-KcK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SgK-Cl-z5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1610" y="122"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="p3D-oI-VfN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ywH-p6-UQa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VZb-15-mPo">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="L0c-zc-Jbp" kind="relationship" relationship="rootViewController" id="Nsh-gc-sJO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5eS-7V-GLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="814" y="122"/>
         </scene>
     </scenes>
     <resources>

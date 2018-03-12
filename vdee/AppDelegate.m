@@ -11,6 +11,8 @@
 #import <Crashlytics/Crashlytics.h>
 #import "ViewController.h"
 #import "Reachability.h"
+#import <Fabric/Fabric.h>
+//#import <Answers/Answers.h>
 
 @interface AppDelegate ()
 
@@ -46,6 +48,8 @@
     else if (remoteHostStatus == ReachableViaWiFi) {NSLog(@"int **** wifi ****"); }
     else if (remoteHostStatus == ReachableViaWWAN) {NSLog(@"init **** cell ****"); }*/
     
+    
+
     [[UIApplication sharedApplication]
      setMinimumBackgroundFetchInterval:
      UIApplicationBackgroundFetchIntervalMinimum];
@@ -53,6 +57,7 @@
     
     // Override point for customization after application launch.
     [Fabric with:@[[Crashlytics class]]];
+    //[Fabric with:@[[Answers class]]];// Feature tracker.
     
     // Override point for customization after application launch.
     // Set AudioSession
@@ -75,6 +80,9 @@
 -(void)dealloc{
     //[reach release];
     //[super dealloc];
+    
+   
+    
 }
 
 -(void)application:(UIApplication *)application

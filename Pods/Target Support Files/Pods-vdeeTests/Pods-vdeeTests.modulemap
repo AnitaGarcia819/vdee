@@ -1,0 +1,6 @@
+framework module Pods_vdeeTests {
+  umbrella header "Pods-vdeeTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

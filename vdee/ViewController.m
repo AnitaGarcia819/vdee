@@ -9,6 +9,9 @@
 #import "ViewController.h"
 #import "Reachability.h"
 #import "AppDelegate.h"
+#import <Crashlytics/Crashlytics.h> // If using Answers with Crashlytics
+//#import <Answers/Answers.h> // If using Answers without Crashlytics
+
 
 @interface ViewController ()
 
@@ -85,7 +88,12 @@ BOOL wasInterupted = false;
     internetOutageMessage0.hidden = TRUE;
     
     if (!isPlaying) {
+        
+        [play_button setTitle:@"Trigger Key Metric" forState:UIControlStateNormal];
+        [play_button addTarget:self action:@selector(anImportantUserAction) forControlEvents:UIControlEventTouchUpInside];
         [self playRadio];
+        
+        
         
     }else{
         [self stopRadio];
@@ -216,6 +224,7 @@ BOOL wasInterupted = false;
             
             [self removeInternetErrorMessage];
             NSLog(@"REACHABLE!");
+            
         });
     };
     
@@ -244,6 +253,13 @@ BOOL wasInterupted = false;
     };
     return reach.isReachable;
 }
+- (void)anImportantUserAction {
+    // TODO: Move this method and customize the name and parameters to track your key metrics
+    //       Use your own string attributes to track common values over time
+    //       Use your own number attributes to track median value over time
+    [Answers logCustomEventWithName:@"Music button was hit!!" customAttributes:@{@"Category":@"Comedy", @"Length":@350}];
+}
+
 
 - (BOOL) checkInternetConnection {
    // return reach.isReachable;
