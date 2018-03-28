@@ -81,6 +81,11 @@ BOOL wasInterupted = false;
     self.loadingLabel.textColor = [UIColor whiteColor];
     self.loadingLabel.adjustsFontSizeToFitWidth = YES;
     self.loadingLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(routeChange:)
+                                                 name:AVAudioSessionRouteChangeNotification
+                                               object:nil];
 }
 
 - (IBAction)play_button:(id)sender {
@@ -183,7 +188,7 @@ BOOL wasInterupted = false;
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             // stop the activity indicator (you are now on the main queue again)
-            if (player.status ==  AVPlayerItemStatusReadyToPlay){
+           if (player.status ==  AVPlayerItemStatusReadyToPlay){
                 // Hide loading box
                 [self stopLoadingBox];
                 
@@ -192,6 +197,7 @@ BOOL wasInterupted = false;
                 
                 // Change play flag
                 isPlaying = true;
+               
             }
         });
     });
@@ -264,6 +270,30 @@ BOOL wasInterupted = false;
 - (BOOL) checkInternetConnection {
    // return reach.isReachable;
     return true;
+}
+
+
+- (void)routeChange:(NSNotification*)notification {
+    
+    NSDictionary *interuptionDict = notification.userInfo;
+    
+    NSInteger routeChangeReason = [[interuptionDict valueForKey:AVAudioSessionRouteChangeReasonKey] integerValue];
+    
+    switch (routeChangeReason) {
+        case AVAudioSessionRouteChangeReasonOldDeviceUnavailable:
+            // a headset was removed
+            NSLog(@"routeChangeReason : AVAudioSessionRouteChangeReasonOldDeviceUnavailable");
+            if(isLoading){
+                [self stopLoadingBox];
+            }
+            [self stopRadio];
+            break;
+        default:
+            break;
+    }
+}
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end
 
