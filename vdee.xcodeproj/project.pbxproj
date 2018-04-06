@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3BE5797BF17CF260FA925912 /* Pods_vdeeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC6D20884C92025042295C6B /* Pods_vdeeTests.framework */; };
+		5A5CC813207451F8004817CC /* TestCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5CC812207451F8004817CC /* TestCollectionViewController.m */; };
+		5A5CC816207471A4004817CC /* TestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5CC815207471A4004817CC /* TestCollectionViewCell.m */; };
+		5A5CC81920758B7E004817CC /* radioCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5CC81820758B7E004817CC /* radioCollectionViewCell.m */; };
 		7749BBC2616DC7A7ED3BFD4E /* Pods_vdeeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8CCFCC7CF6B4EEC25D9076 /* Pods_vdeeUITests.framework */; };
 		8F1AB9DC1EDB7DCA00C1FC11 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1AB9DB1EDB7DCA00C1FC11 /* SystemConfiguration.framework */; };
 		8F7063211ECBFCCD0048D17E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7063201ECBFCCD0048D17E /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -48,6 +51,12 @@
 /* Begin PBXFileReference section */
 		16B858B26EACDE922224AA32 /* Pods-vdee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdee.release.xcconfig"; path = "Pods/Target Support Files/Pods-vdee/Pods-vdee.release.xcconfig"; sourceTree = "<group>"; };
 		5A11182C2049CE6F00315DDD /* vdee-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vdee-Bridging-Header.h"; sourceTree = "<group>"; };
+		5A5CC811207451F8004817CC /* TestCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewController.h; sourceTree = "<group>"; };
+		5A5CC812207451F8004817CC /* TestCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewController.m; sourceTree = "<group>"; };
+		5A5CC814207471A4004817CC /* TestCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewCell.h; sourceTree = "<group>"; };
+		5A5CC815207471A4004817CC /* TestCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewCell.m; sourceTree = "<group>"; };
+		5A5CC81720758B7E004817CC /* radioCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = radioCollectionViewCell.h; sourceTree = "<group>"; };
+		5A5CC81820758B7E004817CC /* radioCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = radioCollectionViewCell.m; sourceTree = "<group>"; };
 		5A5E4DC7FCA749D50E21A850 /* Pods-vdeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdeeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-vdeeTests/Pods-vdeeTests.release.xcconfig"; sourceTree = "<group>"; };
 		8F1AB9DB1EDB7DCA00C1FC11 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8F7063201ECBFCCD0048D17E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -182,6 +191,12 @@
 				8FC310701EC04F5400CFBC40 /* Info.plist */,
 				8FC3105F1EC04F5400CFBC40 /* Supporting Files */,
 				5A11182C2049CE6F00315DDD /* vdee-Bridging-Header.h */,
+				5A5CC811207451F8004817CC /* TestCollectionViewController.h */,
+				5A5CC812207451F8004817CC /* TestCollectionViewController.m */,
+				5A5CC814207471A4004817CC /* TestCollectionViewCell.h */,
+				5A5CC815207471A4004817CC /* TestCollectionViewCell.m */,
+				5A5CC81720758B7E004817CC /* radioCollectionViewCell.h */,
+				5A5CC81820758B7E004817CC /* radioCollectionViewCell.m */,
 			);
 			path = vdee;
 			sourceTree = "<group>";
@@ -526,8 +541,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FC310671EC04F5400CFBC40 /* ViewController.m in Sources */,
+				5A5CC813207451F8004817CC /* TestCollectionViewController.m in Sources */,
 				8FF967D91ED3CE6300FB924C /* Reachabiliy.m in Sources */,
 				8FC310641EC04F5400CFBC40 /* AppDelegate.m in Sources */,
+				5A5CC81920758B7E004817CC /* radioCollectionViewCell.m in Sources */,
+				5A5CC816207471A4004817CC /* TestCollectionViewCell.m in Sources */,
 				8FC310611EC04F5400CFBC40 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
