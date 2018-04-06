@@ -409,10 +409,10 @@
             </objects>
             <point key="canvasLocation" x="953" y="777"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed View Controller-->
         <scene sceneID="yiX-Gw-FaR">
             <objects>
-                <viewController id="P19-wN-wHp" sceneMemberID="viewController">
+                <viewController id="P19-wN-wHp" customClass="FBFeedViewController" customModule="vdee" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="914-cb-mKJ"/>
                         <viewControllerLayoutGuide type="bottom" id="dz7-mZ-i9g"/>
@@ -420,13 +420,28 @@
                     <view key="view" contentMode="scaleToFill" id="jxq-Mz-Bad">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S6s-zT-9IL">
+                                <rect key="frame" x="0.0" y="64" width="375" height="546"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="901-bS-mSu">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="z1z-3v-AjY"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="901-bS-mSu" id="ozI-Ce-bvq"/>
+                        <outlet property="webView" destination="S6s-zT-9IL" id="kYD-fR-3nl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFe-uQ-Bxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="953" y="1496"/>
+            <point key="canvasLocation" x="952.79999999999995" y="1495.5022488755624"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="dgL-2k-99T">

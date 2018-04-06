@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3BE5797BF17CF260FA925912 /* Pods_vdeeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC6D20884C92025042295C6B /* Pods_vdeeTests.framework */; };
+		581C0F6E2076F577007FB455 /* FBFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581C0F6D2076F577007FB455 /* FBFeedViewController.swift */; };
+		58533D7C2075F7FB00046B36 /* FBFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58533D7B2075F7FB00046B36 /* FBFeedViewController.m */; };
 		7749BBC2616DC7A7ED3BFD4E /* Pods_vdeeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8CCFCC7CF6B4EEC25D9076 /* Pods_vdeeUITests.framework */; };
 		8F1AB9DC1EDB7DCA00C1FC11 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1AB9DB1EDB7DCA00C1FC11 /* SystemConfiguration.framework */; };
 		8F7063211ECBFCCD0048D17E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7063201ECBFCCD0048D17E /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -47,6 +49,9 @@
 
 /* Begin PBXFileReference section */
 		16B858B26EACDE922224AA32 /* Pods-vdee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdee.release.xcconfig"; path = "Pods/Target Support Files/Pods-vdee/Pods-vdee.release.xcconfig"; sourceTree = "<group>"; };
+		581C0F6D2076F577007FB455 /* FBFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBFeedViewController.swift; sourceTree = "<group>"; };
+		58533D7B2075F7FB00046B36 /* FBFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBFeedViewController.m; sourceTree = "<group>"; };
+		58533D7D2075F81D00046B36 /* FBFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBFeedViewController.h; sourceTree = "<group>"; };
 		5A11182C2049CE6F00315DDD /* vdee-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vdee-Bridging-Header.h"; sourceTree = "<group>"; };
 		5A5E4DC7FCA749D50E21A850 /* Pods-vdeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdeeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-vdeeTests/Pods-vdeeTests.release.xcconfig"; sourceTree = "<group>"; };
 		8F1AB9DB1EDB7DCA00C1FC11 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -182,6 +187,9 @@
 				8FC310701EC04F5400CFBC40 /* Info.plist */,
 				8FC3105F1EC04F5400CFBC40 /* Supporting Files */,
 				5A11182C2049CE6F00315DDD /* vdee-Bridging-Header.h */,
+				58533D7B2075F7FB00046B36 /* FBFeedViewController.m */,
+				58533D7D2075F81D00046B36 /* FBFeedViewController.h */,
+				581C0F6D2076F577007FB455 /* FBFeedViewController.swift */,
 			);
 			path = vdee;
 			sourceTree = "<group>";
@@ -525,10 +533,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				581C0F6E2076F577007FB455 /* FBFeedViewController.swift in Sources */,
 				8FC310671EC04F5400CFBC40 /* ViewController.m in Sources */,
 				8FF967D91ED3CE6300FB924C /* Reachabiliy.m in Sources */,
 				8FC310641EC04F5400CFBC40 /* AppDelegate.m in Sources */,
 				8FC310611EC04F5400CFBC40 /* main.m in Sources */,
+				58533D7C2075F7FB00046B36 /* FBFeedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,6 +739,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F00A4E0D629EB84152058295 /* Pods-vdeeTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = vdeeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -742,6 +753,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A5E4DC7FCA749D50E21A850 /* Pods-vdeeTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = vdeeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -755,6 +767,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FBC8BC4FDD4E03492029A770 /* Pods-vdeeUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = vdeeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = csumb.vdeeUITests;
@@ -767,6 +780,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FCB1D96C69D87A5DB659875A /* Pods-vdeeUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = vdeeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = csumb.vdeeUITests;
