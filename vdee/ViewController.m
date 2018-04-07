@@ -478,15 +478,8 @@ static NSString * const reuseIdentifier = @"Cell1";
     });
 }
 
-//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(nonnull UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-//    CGFloat totalCellWidth = kItemWidth * 2;
-//    CGFloat totalSpacingWidth = kSpacing * (((float)self.dataArray.count - 1) < 0 ? 0 :self.dataArray.count - 1);
-//    CGFloat leftInset = (self.bounds.size.width - (totalCellWidth + totalSpacingWidth)) / 2;
-//    CGFloat rightInset = leftInset;
-//    UIEdgeInsets sectionInset = UIEdgeInsetsMake(0, leftInset, 0, rightInset);
-//    return sectionInset;
-//}
 
+// Center cells in the middle
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     // Add inset to the collection view if there are not enough cells to fill the width.
@@ -497,7 +490,31 @@ static NSString * const reuseIdentifier = @"Cell1";
     inset = MAX(inset, 0.0);
     return UIEdgeInsetsMake(0.0, inset, 0.0, 0.0);
 }
-
+// Snap to position
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    
+    float pageWidth = 136 + 100; // width + space
+    
+    float currentOffset = scrollView.contentOffset.x;
+    float targetOffset = targetContentOffset->x;
+    float newTargetOffset = 0;
+    
+    if (targetOffset > currentOffset)
+        newTargetOffset = ceilf(currentOffset / pageWidth) * pageWidth;
+    else
+        newTargetOffset = floorf(currentOffset / pageWidth) * pageWidth;
+    
+    if (newTargetOffset < 0)
+        newTargetOffset = 0;
+    else if (newTargetOffset > scrollView.contentSize.width)
+        newTargetOffset = scrollView.contentSize.width;
+    
+    targetContentOffset->x = currentOffset;
+    [scrollView setContentOffset:CGPointMake(newTargetOffset, 0) animated:YES];
+    
+    
+}
 @end
 
 

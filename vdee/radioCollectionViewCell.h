@@ -10,6 +10,7 @@
 
 @interface radioCollectionViewCell : UICollectionViewCell
 
+//@property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 
 @end
