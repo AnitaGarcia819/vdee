@@ -51,16 +51,32 @@ UITabBarController* tabBarController;
     else if (remoteHostStatus == ReachableViaWiFi) {NSLog(@"int **** wifi ****"); }
     else if (remoteHostStatus == ReachableViaWWAN) {NSLog(@"init **** cell ****"); }*/
     
+    // setup window
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    
+    
+    // ** TabBarController setup
+    
     tabBarController = [[UITabBarController alloc] init];
     
-    ViewController* vc = [[ViewController alloc] init];
+    //ViewController* vc = [[ViewController alloc] init];
+    // setup viewController to add to TabController
+    // instantiate view from storyboard
+    // create NavigationController to embed to ViewController (optional)
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
+    UINavigationController *navRadio = [[UINavigationController alloc] initWithRootViewController:vc];
+    // set tab bar title since using a navigation controller, otherwise set in ViewWillAppear of ViewController
+    [navRadio.tabBarItem setTitle:@"Radio Player"];
     
-    
+    // add ViewControllers or NavigationControllers to array
     NSArray* controllers = [NSArray arrayWithObjects: vc, nil];
     tabBarController.viewControllers = controllers;
     
     self.window.rootViewController = tabBarController;
+    [self.window makeKeyAndVisible];
     
+    // **
     
     
 
