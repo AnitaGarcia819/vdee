@@ -70,7 +70,7 @@ UITabBarController* tabBarController;
     [navRadio.tabBarItem setTitle:@"Radio Player"];
     
     // add ViewControllers or NavigationControllers to array
-    NSArray* controllers = [NSArray arrayWithObjects: vc, nil];
+    NSArray* controllers = [NSArray arrayWithObjects: navRadio, nil];
     tabBarController.viewControllers = controllers;
     
     self.window.rootViewController = tabBarController;
