@@ -74,7 +74,7 @@ UITabBarController* tabBarController;
     [navFBFeed.tabBarItem setTitle:@"FB Group"];
     
     // add ViewControllers or NavigationControllers to array
-    NSArray* controllers = [NSArray arrayWithObjects: vc, navFBFeed, nil];
+    NSArray* controllers = [NSArray arrayWithObjects: navRadio, navFBFeed, nil];
     tabBarController.viewControllers = controllers;
     
     self.window.rootViewController = tabBarController;
