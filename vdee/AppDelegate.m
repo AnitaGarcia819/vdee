@@ -69,8 +69,12 @@ UITabBarController* tabBarController;
     // set tab bar title since using a navigation controller, otherwise set in ViewWillAppear of ViewController
     [navRadio.tabBarItem setTitle:@"Radio Player"];
     
+    UIViewController *fbFeedVC = [storyboard instantiateViewControllerWithIdentifier:@"FBFeedVC"];
+    UINavigationController *navFBFeed = [[UINavigationController alloc] initWithRootViewController:fbFeedVC];
+    [navFBFeed.tabBarItem setTitle:@"FB Group"];
+    
     // add ViewControllers or NavigationControllers to array
-    NSArray* controllers = [NSArray arrayWithObjects: vc, nil];
+    NSArray* controllers = [NSArray arrayWithObjects: vc, navFBFeed, nil];
     tabBarController.viewControllers = controllers;
     
     self.window.rootViewController = tabBarController;
