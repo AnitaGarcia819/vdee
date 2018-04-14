@@ -34,6 +34,9 @@
     else if (remoteHostStatus == ReachableViaWWAN) {NSLog(@"**** cell ****"); }
 }
 */
+
+UITabBarController* tabBarController;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     /*[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
@@ -47,6 +50,17 @@
     if(remoteHostStatus == NotReachable) {NSLog(@"init **** Not Reachable ****");}
     else if (remoteHostStatus == ReachableViaWiFi) {NSLog(@"int **** wifi ****"); }
     else if (remoteHostStatus == ReachableViaWWAN) {NSLog(@"init **** cell ****"); }*/
+    
+    tabBarController = [[UITabBarController alloc] init];
+    
+    ViewController* vc = [[ViewController alloc] init];
+    
+    
+    NSArray* controllers = [NSArray arrayWithObjects: vc, nil];
+    tabBarController.viewControllers = controllers;
+    
+    self.window.rootViewController = tabBarController;
+    
     
     
 
@@ -81,7 +95,7 @@
     //[reach release];
     //[super dealloc];
     
-   
+    //[tabBarController release];
     
 }
 

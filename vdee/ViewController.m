@@ -38,6 +38,16 @@ BOOL wasInterupted = false;
 
 - (BOOL)canBecomeFirstResponder { return YES;}
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        UITabBarItem *tabBarItem = [self tabBarItem];
+        [tabBarItem setTitle:@"Radio Player"];
+    }
+    return self;
+}
+
 - (void)viewDidLoad{
     [super viewDidLoad];
     
