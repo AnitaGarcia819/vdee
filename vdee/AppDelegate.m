@@ -12,6 +12,7 @@
 #import "ViewController.h"
 #import "Reachability.h"
 #import <Fabric/Fabric.h>
+@import Firebase;
 //#import <Answers/Answers.h>
 
 @interface AppDelegate ()
@@ -59,6 +60,9 @@
     [Fabric with:@[[Crashlytics class]]];
     //[Fabric with:@[[Answers class]]];// Feature tracker.
     
+    //Firebase
+    [FIRApp configure];
+    
     // Override point for customization after application launch.
     // Set AudioSession
     NSError *sessionError = nil;
@@ -80,9 +84,6 @@
 -(void)dealloc{
     //[reach release];
     //[super dealloc];
-    
-   
-    
 }
 
 -(void)application:(UIApplication *)application
@@ -108,7 +109,6 @@ performFetchWithCompletionHandler:
     
     NSLog(@"Background fetch completed...");
 }
-
 
 /*
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -153,5 +153,4 @@ performFetchWithCompletionHandler:
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
 @end

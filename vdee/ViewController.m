@@ -10,8 +10,10 @@
 #import "Reachability.h"
 #import "AppDelegate.h"
 #import <Crashlytics/Crashlytics.h> // If using Answers with Crashlytics
+#import "Constants.h"
+#import "FirebaseManager.h"
+@import Firebase;
 //#import <Answers/Answers.h> // If using Answers without Crashlytics
-
 
 @interface ViewController ()
 
@@ -50,7 +52,14 @@ BOOL wasInterupted = false;
     
     // Connect loading view with scroll view
     //self.scrollView.pagingEnabled = YES;
-   
+    
+    //Sets up Firebase
+    [FirebaseManager configureRemoteConfig];
+    [FirebaseManager firebase];
+    [FirebaseManager fetchConfig];
+    
+    [super viewDidLoad];
+    
     // Loading view
     self.loadingView = [[UIView alloc] initWithFrame:CGRectMake(145, 145, 145, 145)];
     self.loadingView.center = CGPointMake(self.scrollView.frame.size.width/2, self.scrollView.frame.size.height/3);
@@ -93,14 +102,10 @@ BOOL wasInterupted = false;
     internetOutageMessage0.hidden = TRUE;
     
     if (!isPlaying) {
-        
         [play_button setTitle:@"Trigger Key Metric" forState:UIControlStateNormal];
         [play_button addTarget:self action:@selector(anImportantUserAction) forControlEvents:UIControlEventTouchUpInside];
         [self playRadio];
-        
-        
-        
-    }else{
+    } else {
         [self stopRadio];
     }
 }
@@ -112,6 +117,7 @@ BOOL wasInterupted = false;
     [self changeButtonImg:@"play.png"];
     isPlaying = false;
 }
+
 - (void) playRadio {
     // Check for conectivity
     if(!([self setupInternetConnection])){
@@ -128,12 +134,10 @@ BOOL wasInterupted = false;
         // Check internet connection
         [self setupInternetConnection];
         // TODO: Make a call to check connectivity
-    }
-    else{
+    } else {
         NSLog(@"(playRadio) WAS REACHABLE");
         //[self removeInternetErrorMessage];
         [self activateRadio];
-    
     }// End if else
 }
 
@@ -162,17 +166,22 @@ BOOL wasInterupted = false;
     // Dispose of any resources that can be recreated.
 }
 
-- (void) displayLoadingScreen:( NSString *) message {
+- (void) displayLoadingScreen:(NSString *)message {
+    FIRRemoteConfig *remoteConfig = [FIRRemoteConfig remoteConfig];
+    message = remoteConfig[loadingMessageConfigKey].stringValue;
     isLoading = TRUE;
     play_button.hidden = TRUE;
     [self.activityIndicatorView startAnimating];
+    if (remoteConfig[loadingMessageCapsConfigKey].boolValue) {
+        message = [message uppercaseString];
+    }
     [self.loadingView addSubview:self.loadingLabel];
     [self.scrollView addSubview:self.loadingView];
     self.loadingLabel.text = message;
 }
 
 - (void) activateRadio {
-     [self displayLoadingScreen:@"Cargando. . . "];
+    [self displayLoadingScreen:loadingMessageConfigKey];
     // Play radio
     playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.vdee.org:8000/salinas"]]];
     player = [AVPlayer playerWithPlayerItem:playerItem];
@@ -197,7 +206,6 @@ BOOL wasInterupted = false;
                 
                 // Change play flag
                 isPlaying = true;
-               
             }
         });
     });
@@ -230,7 +238,6 @@ BOOL wasInterupted = false;
             
             [self removeInternetErrorMessage];
             NSLog(@"REACHABLE!");
-            
         });
     };
     
@@ -250,7 +257,7 @@ BOOL wasInterupted = false;
             // Show correct image
             if(isPlaying){
                 //[self changeButtonImg:@"play.png"];
-                [self displayLoadingScreen:@"Cargando. . . "];
+                [self displayLoadingScreen:loadingMessageConfigKey];
                 isPlaying = FALSE;
                 isLoading = TRUE;
             }
@@ -259,6 +266,7 @@ BOOL wasInterupted = false;
     };
     return reach.isReachable;
 }
+
 - (void)anImportantUserAction {
     // TODO: Move this method and customize the name and parameters to track your key metrics
     //       Use your own string attributes to track common values over time
@@ -266,17 +274,13 @@ BOOL wasInterupted = false;
     [Answers logCustomEventWithName:@"Music button was hit!!" customAttributes:@{@"Category":@"Comedy", @"Length":@350}];
 }
 
-
 - (BOOL) checkInternetConnection {
    // return reach.isReachable;
     return true;
 }
 
-
 - (void)routeChange:(NSNotification*)notification {
-    
     NSDictionary *interuptionDict = notification.userInfo;
-    
     NSInteger routeChangeReason = [[interuptionDict valueForKey:AVAudioSessionRouteChangeReasonKey] integerValue];
     
     switch (routeChangeReason) {
@@ -292,9 +296,11 @@ BOOL wasInterupted = false;
             break;
     }
 }
+
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
 @end
 
 

@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "FirebaseManager.h"
+@import Firebase;
 
 //UIActivityIndicatorView *indicator;
 
 @interface ViewController : UIViewController <AVPlayerViewControllerDelegate>{
 
-    
 }
 
 @property(nonatomic,strong) AVPlayer *player;
@@ -23,6 +24,6 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loading;
 @property (weak, nonatomic) IBOutlet UILabel *internetOutageMessage0;
 
-
 - (BOOL) checkInternetConnection;
+
 @end
