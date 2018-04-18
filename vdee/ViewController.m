@@ -5,6 +5,8 @@
 //  Created by Anita Garcia on 5/8/17.
 //  Copyright © 2017 Anita Garcia. All rights reserved.
 //
+
+#import <UIKit/UIKit.h>
 #import "radioCollectionViewCell.h"
 #import "ViewController.h"
 #import "Reachability.h"
@@ -40,6 +42,8 @@
 
 BOOL isPlayingCell0 = false;
 BOOL isPlayingCell1 = false;
+BOOL isPlayingCell2 = false;
+BOOL isPlayingCell3 = false;
 //**********
 
 BOOL isPlaying = false;
@@ -55,6 +59,8 @@ static NSString * const reuseIdentifier = @"Cell1";
 - (void)viewDidLoad{
     [super viewDidLoad];
     
+    //The setup code (in viewDidLoad in your view controller)
+   
     // buttons = [NSArray arrayWithObjects:@"play.png",nil];
 //     [self.radioCollectionView registerClass:[radioCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
    
@@ -70,7 +76,7 @@ static NSString * const reuseIdentifier = @"Cell1";
    
     // Loading view
     self.loadingView = [[UIView alloc] initWithFrame:CGRectMake(145, 145, 145, 145)];
-    self.loadingView.center = CGPointMake(self.scrollView.frame.size.width/2, self.scrollView.frame.size.height/3);
+    self.loadingView.center = CGPointMake(self.radioCollectionView.frame.size.width/2, self.radioCollectionView.frame.size.height/3);
     self.loadingView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     self.loadingView.clipsToBounds = YES;
     self.loadingView.layer.cornerRadius = 10.0;
@@ -125,6 +131,8 @@ static NSString * const reuseIdentifier = @"Cell1";
     isPlaying = false;
     isPlayingCell0 = false;
     isPlayingCell1 = false;
+    isPlayingCell2 = false;
+    isPlayingCell3 = false;
     
 }
 - (void) playRadio {
@@ -183,7 +191,7 @@ static NSString * const reuseIdentifier = @"Cell1";
     play_button.hidden = TRUE;
     [self.activityIndicatorView startAnimating];
     [self.loadingView addSubview:self.loadingLabel];
-    [self.scrollView addSubview:self.loadingView];
+    [self.radioCollectionView addSubview:self.loadingView];
     self.loadingLabel.text = message;
 }
 
@@ -216,6 +224,8 @@ static NSString * const reuseIdentifier = @"Cell1";
                 isPlaying = true;
                 isPlayingCell0 = true;
                 isPlayingCell1 = true;
+                isPlayingCell2 = true;
+                isPlayingCell3 = true;
             }
         });
     });
@@ -293,9 +303,11 @@ static NSString * const reuseIdentifier = @"Cell1";
 // hANDLING THE UICOLLECTION VIEW
 - (NSInteger) collectionView: (UICollectionView *) collectionView numberOfItemsInSection:(NSInteger)section {
     
-    printf("callll");
+    printf("Number of radio stations");
     
-    return 2;
+    
+    
+    return 4;
     
 }
 
@@ -307,12 +319,37 @@ static NSString * const reuseIdentifier = @"Cell1";
     static NSString *identifier = @"Cell1";
     //printf("Index Path:", indexPath);
     
-   
     radioCollectionViewCell *cell = (radioCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-     UIImage *btnImage = [UIImage imageNamed:@"play.png"];
+    UIImage *btnImage = [UIImage imageNamed:@"play.png"];
     //        [btnTwo setImage:btnImage forState:UIControlStateNormal]
-     [cell.playButton setImage:btnImage forState:UIControlStateNormal];
+    [cell.playButton setImage:btnImage forState:UIControlStateNormal];
+    cell.playButton.tag = indexPath.row;
+    printf("TAG: %ld \n", (long)indexPath.row);
     
+    if(indexPath.row == 0){
+        cell.label.text = @"Salinas";
+        
+    }
+    else if(indexPath.row == 1){
+        cell.label.text = @"King city";
+        
+    }
+    else if(indexPath.row == 2){
+        cell.label.text = @"Zion";
+        
+    }
+    else if(indexPath.row == 3){
+        cell.label.text = @"Internacional";
+        
+    }
+    else{
+        printf("Error with accessing the index path");
+        
+    }
+   
+   
+    
+   
     
     return cell;
     
@@ -355,8 +392,15 @@ static NSString * const reuseIdentifier = @"Cell1";
             //Fabric metrics
            // [play_button addTarget:self action:@selector(anImportantUserAction) forControlEvents:UIControlEventTouchUpInside];
             //[self playRadio];
+            
              UIImage *btnImage = [UIImage imageNamed:@"stop.png"];
             [datasetCell.playButton setImage:btnImage forState:UIControlStateNormal];
+            
+//            [datasetCell.playButton addTarget:self action:@selector(pressedButton)
+//             forControlEvents:UIControlEventTouchUpInside];
+            
+          // [self.radioCollectionView addSubview:datasetCell.playButton];
+
             [self playRadioCell:@"http://www.vdee.org:8000/salinas"];
             
             
@@ -473,6 +517,8 @@ static NSString * const reuseIdentifier = @"Cell1";
                 isPlaying = true;
                 isPlayingCell0 = true;
                 isPlayingCell1 = true;
+                isPlayingCell2 = true;
+                isPlayingCell3 = true;
             }
         });
     });
@@ -515,6 +561,107 @@ static NSString * const reuseIdentifier = @"Cell1";
     
     
 }
+- (IBAction)buttonClicked:(id)sender {
+   // printf("Hello Hello Hello friend");
+    
+   
+//    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.radioCollectionView];
+//
+//    NSIndexPath *indexPath = [self.radioCollectionView indexPathForItemAtPoint:buttonPosition];
+//     NSLog(@"%ld", (long)indexPath.row);
+    
+    UIButton *button = (UIButton *)sender;
+   // UIImage *btnImage = [UIImage imageNamed:@"stop.png"];
+    // UILabel *label = (UILabel *)sender;
+    
+    switch([sender tag]){
+        case 0:
+            printf("Hello v0");
+            
+            if (!isPlayingCell0) {
+                
+                UIImage *btnImage = [UIImage imageNamed:@"stop.png"];
+                [button setImage:btnImage forState:UIControlStateNormal];
+                  [self playRadioCell:@"http://www.vdee.org:8000/salinas"];
+               // label.text = @"Salinas";
+                
+                
+                
+                // Salinas
+                
+            }else{
+                UIImage *btnImage = [UIImage imageNamed:@"play.png"];
+                [button setImage:btnImage forState:UIControlStateNormal];
+                [self stopRadio];
+            }
+            
+            break;
+        case 1:
+            printf("Hello v1");
+            
+            if (!isPlayingCell1) {
+                
+                UIImage *btnImage = [UIImage imageNamed:@"stop.png"];
+                [button setImage:btnImage forState:UIControlStateNormal];
+                [self playRadioCell:@"http://107.215.165.202:8000/resplandecer"];
+               // label.text = @"King city";
+                
+                // Kingcity
+                
+            }else{
+                UIImage *btnImage = [UIImage imageNamed:@"play.png"];
+                [button setImage:btnImage forState:UIControlStateNormal];
+                [self stopRadio];
+            }
+            break;
+            case 2:
+            printf("Hello v2");
+            
+            if (!isPlayingCell2) {
+                
+                UIImage *btnImage = [UIImage imageNamed:@"stop.png"];
+                [button setImage:btnImage forState:UIControlStateNormal];
+                [self playRadioCell:@"http://unoredradio.com:9736/"];
+                //Radio Zion
+                 // label.text = @"Radio Zion";
+                
+                
+                
+            }else{
+                UIImage *btnImage = [UIImage imageNamed:@"play.png"];
+                [button setImage:btnImage forState:UIControlStateNormal];
+                [self stopRadio];
+            }
+            break;
+            case 3:
+            printf("Hello v3");
+            
+            if (!isPlayingCell3) {
+                
+                UIImage *btnImage = [UIImage imageNamed:@"stop.png"];
+                [button setImage:btnImage forState:UIControlStateNormal];
+                [self playRadioCell:@"http://162.219.28.116:9638/;"];
+                // Radio Internacional bilingue
+                  //label.text = @"Radio Internacional";
+                
+                
+                
+            }else{
+                UIImage *btnImage = [UIImage imageNamed:@"play.png"];
+                [button setImage:btnImage forState:UIControlStateNormal];
+                [self stopRadio];
+            }
+            break;
+        default:
+            printf("Error");
+            break;
+            
+    }
+    
+}
+
+
+
 @end
 
 

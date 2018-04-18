@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface radioCollectionViewCell : UICollectionViewCell
 
 //@property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property NSInteger position;
+@property (weak, nonatomic) IBOutlet UILabel *label;
+
+
+
+
 
 @end
