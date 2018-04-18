@@ -492,7 +492,9 @@ static NSString * const reuseIdentifier = @"Cell1";
     [self displayLoadingScreen:@"Cargando. . . "];
     // Play radio
     playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", link]]];
-
+    NSLog(@"%@", playerItem);
+    
+    [playerItem addObserver:self forKeyPath:@"timedMetadata" options:NSKeyValueObservingOptionNew context: nil];
     player = [AVPlayer playerWithPlayerItem:playerItem];
     [player play];
     
@@ -561,6 +563,34 @@ static NSString * const reuseIdentifier = @"Cell1";
     
     
 }
+
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary*)change context:(void *)context {
+    printf("Hello World");
+    if ([keyPath isEqualToString:@"timedMetadata"]) {
+        
+        AVPlayerItem * _playerItem = object;
+        
+        for(AVMetadataItem *metadataItem in _playerItem.timedMetadata) {
+            
+            if([[metadataItem.key description] isEqualToString:@"title"]) {
+                
+                NSString *s = [NSString stringWithFormat: @"%@", metadataItem.stringValue];
+                
+                printf("%s\n", [s UTF8String]);
+                
+            } else{
+                printf("jesus is master");
+            }
+            
+        }
+        
+    } else{
+        printf("Nick is a monkey");
+    }
+    
+}
+
+
 - (IBAction)buttonClicked:(id)sender {
    // printf("Hello Hello Hello friend");
     
@@ -640,15 +670,18 @@ static NSString * const reuseIdentifier = @"Cell1";
                 
                 UIImage *btnImage = [UIImage imageNamed:@"stop.png"];
                 [button setImage:btnImage forState:UIControlStateNormal];
-                [self playRadioCell:@"http://162.219.28.116:9638/;"];
+                [self playRadioCell:@"http://stream.myjungly.fr/MYJUNGLY2"];
                 // Radio Internacional bilingue
                   //label.text = @"Radio Internacional";
+                
+                
                 
                 
                 
             }else{
                 UIImage *btnImage = [UIImage imageNamed:@"play.png"];
                 [button setImage:btnImage forState:UIControlStateNormal];
+                [playerItem removeObserver:self forKeyPath:@"timedMetadata" context: nil];
                 [self stopRadio];
             }
             break;
