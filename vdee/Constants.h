@@ -13,5 +13,6 @@
 //Firebase console parameters
 extern NSString *const loadingMessageConfigKey;
 extern NSString *const loadingMessageCapsConfigKey;
+extern NSString *const tabViewEnabledConfigKey;
 
 @end

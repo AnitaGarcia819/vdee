@@ -53,13 +53,6 @@ BOOL wasInterupted = false;
     // Connect loading view with scroll view
     //self.scrollView.pagingEnabled = YES;
     
-    //Sets up Firebase
-    [FirebaseManager configureRemoteConfig];
-    [FirebaseManager firebase];
-    [FirebaseManager fetchConfig];
-    
-    [super viewDidLoad];
-    
     // Loading view
     self.loadingView = [[UIView alloc] initWithFrame:CGRectMake(145, 145, 145, 145)];
     self.loadingView.center = CGPointMake(self.scrollView.frame.size.width/2, self.scrollView.frame.size.height/3);

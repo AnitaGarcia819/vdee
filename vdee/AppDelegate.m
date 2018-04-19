@@ -12,6 +12,7 @@
 #import "ViewController.h"
 #import "Reachability.h"
 #import <Fabric/Fabric.h>
+#import "Constants.h"
 @import Firebase;
 //#import <Answers/Answers.h>
 
@@ -35,6 +36,9 @@
     else if (remoteHostStatus == ReachableViaWWAN) {NSLog(@"**** cell ****"); }
 }
 */
+
+UITabBarController* tabBarController;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     /*[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
@@ -49,6 +53,55 @@
     else if (remoteHostStatus == ReachableViaWiFi) {NSLog(@"int **** wifi ****"); }
     else if (remoteHostStatus == ReachableViaWWAN) {NSLog(@"init **** cell ****"); }*/
     
+    //Firebase
+    [FIRApp configure];
+    
+    //Sets up Firebase
+    [FirebaseManager configureRemoteConfig];
+    [FirebaseManager firebase];
+    [FirebaseManager fetchConfig];
+    
+    FIRRemoteConfig *remoteConfig = [FIRRemoteConfig remoteConfig];
+    BOOL tabViewEnabled = remoteConfig[tabViewEnabledConfigKey].boolValue;
+    
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    if (tabViewEnabled) {
+        // setup window
+        // ** TabBarController setup
+        tabBarController = [[UITabBarController alloc] init];
+        
+        // setup viewController to add to TabController
+        // instantiate view from storyboard
+        // create NavigationController to embed to ViewController (optional)
+            /*
+                Note: if you don't embed a Navigation Controller;
+                then, you have to set the tab bar title in the ViewWillAppear method
+                in the desired ViewController
+              */
+        
+        // Example of adding a tab to a view controller and embeding a navigation controller
+        // Note: when using following example, replace identifiers with your own
+        
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
+//        UINavigationController *navRadio = [[UINavigationController alloc] initWithRootViewController:vc];
+        // set tab bar title since using a navigation controller, otherwise set in ViewWillAppear of ViewController
+//        [navRadio.tabBarItem setTitle:@"Radio Player"];
+        
+        // add ViewControllers or NavigationControllers to array (required **)
+//        NSArray* controllers = [NSArray arrayWithObjects: navRadio, nil];
+        //tabBarController.viewControllers = controllers;
+        
+        self.window.rootViewController = tabBarController;
+        // ****
+    } else {
+        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
+        self.window.rootViewController = vc;
+    }
+    [self.window makeKeyAndVisible];
+    
     
 
     [[UIApplication sharedApplication]
@@ -60,8 +113,6 @@
     [Fabric with:@[[Crashlytics class]]];
     //[Fabric with:@[[Answers class]]];// Feature tracker.
     
-    //Firebase
-    [FIRApp configure];
     
     // Override point for customization after application launch.
     // Set AudioSession
@@ -84,6 +135,7 @@
 -(void)dealloc{
     //[reach release];
     //[super dealloc];
+    //[tabBarController release];
 }
 
 -(void)application:(UIApplication *)application
