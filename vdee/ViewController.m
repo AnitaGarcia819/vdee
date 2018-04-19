@@ -622,6 +622,7 @@ static NSString * const reuseIdentifier = @"Cell1";
             }else{
                 UIImage *btnImage = [UIImage imageNamed:@"play.png"];
                 [button setImage:btnImage forState:UIControlStateNormal];
+                [playerItem removeObserver:self forKeyPath:@"timedMetadata" context: nil];
                 [self stopRadio];
             }
             
@@ -641,6 +642,7 @@ static NSString * const reuseIdentifier = @"Cell1";
             }else{
                 UIImage *btnImage = [UIImage imageNamed:@"play.png"];
                 [button setImage:btnImage forState:UIControlStateNormal];
+                [playerItem removeObserver:self forKeyPath:@"timedMetadata" context: nil];
                 [self stopRadio];
             }
             break;
@@ -660,6 +662,7 @@ static NSString * const reuseIdentifier = @"Cell1";
             }else{
                 UIImage *btnImage = [UIImage imageNamed:@"play.png"];
                 [button setImage:btnImage forState:UIControlStateNormal];
+                [playerItem removeObserver:self forKeyPath:@"timedMetadata" context: nil];
                 [self stopRadio];
             }
             break;
@@ -670,7 +673,7 @@ static NSString * const reuseIdentifier = @"Cell1";
                 
                 UIImage *btnImage = [UIImage imageNamed:@"stop.png"];
                 [button setImage:btnImage forState:UIControlStateNormal];
-                [self playRadioCell:@"http://stream.myjungly.fr/MYJUNGLY2"];
+                [self playRadioCell:@"http://162.219.28.116:9638/;"];
                 // Radio Internacional bilingue
                   //label.text = @"Radio Internacional";
                 
