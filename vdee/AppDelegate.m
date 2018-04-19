@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
-#import "ViewController.h"
+#import "RadioStationsViewController.h"
 #import "Reachability.h"
 #import <Fabric/Fabric.h>
 @import Firebase;
@@ -94,7 +94,7 @@ performFetchWithCompletionHandler:
     //---do background fetch here---
     // You have up to 30 seconds to perform the fetch
     
-    ViewController * vc = [[ViewController alloc]init];
+    RadioStationsViewController * vc = [[RadioStationsViewController alloc]init];
     [vc checkInternetConnection];
     
     BOOL downloadSuccessful = YES;
