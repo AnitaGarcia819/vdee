@@ -334,6 +334,24 @@
             <point key="canvasLocation" x="-5.5999999999999996" y="160.11994002998503"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="RQJ-D9-GXL">
+            <objects>
+                <viewController id="LBQ-BL-yQA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MTK-8a-DBu"/>
+                        <viewControllerLayoutGuide type="bottom" id="OzD-nr-e4j"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K7h-mm-f6d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q8q-Sx-vhl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6" y="1058"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="3kl-mf-OjO">
             <objects>
                 <viewController id="L0c-zc-Jbp" sceneMemberID="viewController">
@@ -373,6 +391,6 @@
     </scenes>
     <resources>
         <image name="play.png" width="225" height="225"/>
-        <image name="vdee_logo.png" width="1024" height="1024"/>
+        <image name="vdee_logo.png" width="400" height="212"/>
     </resources>
 </document>

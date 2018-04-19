@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3BE5797BF17CF260FA925912 /* Pods_vdeeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC6D20884C92025042295C6B /* Pods_vdeeTests.framework */; };
+		5A7E89AF2088202F00AF9337 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A7E89AE2088202F00AF9337 /* RemoteConfigDefaults.plist */; };
+		5A7E89B12088203B00AF9337 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A7E89B02088203B00AF9337 /* GoogleService-Info.plist */; };
+		5A7E89B62088218700AF9337 /* RadioStationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E89B52088218700AF9337 /* RadioStationsViewController.m */; };
 		7749BBC2616DC7A7ED3BFD4E /* Pods_vdeeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8CCFCC7CF6B4EEC25D9076 /* Pods_vdeeUITests.framework */; };
 		8F1AB9DC1EDB7DCA00C1FC11 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1AB9DB1EDB7DCA00C1FC11 /* SystemConfiguration.framework */; };
 		8F7063211ECBFCCD0048D17E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7063201ECBFCCD0048D17E /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -25,10 +28,8 @@
 		8FF967D31ED3915600FB924C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF967D11ED3915600FB924C /* Fabric.framework */; };
 		8FF967D41ED3915600FB924C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF967D21ED3915600FB924C /* Crashlytics.framework */; };
 		8FF967D91ED3CE6300FB924C /* Reachabiliy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF967D81ED3CE6300FB924C /* Reachabiliy.m */; };
-		ABE658532078CB8E00AE95B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABE658522078CB8D00AE95B8 /* GoogleService-Info.plist */; };
 		ABE658562078CE2A00AE95B8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE658552078CE2A00AE95B8 /* Constants.m */; };
 		ABE658592078D14800AE95B8 /* FirebaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE658582078D14800AE95B8 /* FirebaseManager.m */; };
-		ABE6585B207AB73500AE95B8 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABE6585A207AB73500AE95B8 /* RemoteConfigDefaults.plist */; };
 		E47257CA28360237BBB0AA22 /* Pods_vdee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BABDDEA67FE6E1D61C00DCC2 /* Pods_vdee.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,12 @@
 		16B858B26EACDE922224AA32 /* Pods-vdee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdee.release.xcconfig"; path = "Pods/Target Support Files/Pods-vdee/Pods-vdee.release.xcconfig"; sourceTree = "<group>"; };
 		5A11182C2049CE6F00315DDD /* vdee-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vdee-Bridging-Header.h"; sourceTree = "<group>"; };
 		5A5E4DC7FCA749D50E21A850 /* Pods-vdeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdeeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-vdeeTests/Pods-vdeeTests.release.xcconfig"; sourceTree = "<group>"; };
+		5A7E89AE2088202F00AF9337 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RemoteConfigDefaults.plist; path = ../../../Downloads/RemoteConfigDefaults.plist; sourceTree = "<group>"; };
+		5A7E89B02088203B00AF9337 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5A7E89B22088206300AF9337 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
+		5A7E89B32088206600AF9337 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5A7E89B42088218700AF9337 /* RadioStationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RadioStationsViewController.h; sourceTree = "<group>"; };
+		5A7E89B52088218700AF9337 /* RadioStationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RadioStationsViewController.m; sourceTree = "<group>"; };
 		8F1AB9DB1EDB7DCA00C1FC11 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8F7063201ECBFCCD0048D17E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8F737F041EE36486008968CD /* vdee_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = vdee_logo.png; path = ../../../Desktop/vdee_logo.png; sourceTree = "<group>"; };
@@ -79,12 +86,10 @@
 		8FF967D21ED3915600FB924C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		8FF967D71ED3CE0A00FB924C /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8FF967D81ED3CE6300FB924C /* Reachabiliy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachabiliy.m; sourceTree = "<group>"; };
-		ABE658522078CB8D00AE95B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ABE658542078CE2A00AE95B8 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		ABE658552078CE2A00AE95B8 /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		ABE658572078D14800AE95B8 /* FirebaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseManager.h; sourceTree = "<group>"; };
 		ABE658582078D14800AE95B8 /* FirebaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirebaseManager.m; sourceTree = "<group>"; };
-		ABE6585A207AB73500AE95B8 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RemoteConfigDefaults.plist; path = ../../../.Trash/swift/vdee/RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		ABE6585C207B3B2200AE95B8 /* vdee_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vdee_logo.png; sourceTree = "<group>"; };
 		AC6D20884C92025042295C6B /* Pods_vdeeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vdeeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC8CCFCC7CF6B4EEC25D9076 /* Pods_vdeeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vdeeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +158,8 @@
 		8FC310531EC04F5400CFBC40 = {
 			isa = PBXGroup;
 			children = (
+				5A7E89AE2088202F00AF9337 /* RemoteConfigDefaults.plist */,
+				5A7E89B02088203B00AF9337 /* GoogleService-Info.plist */,
 				8F1AB9DB1EDB7DCA00C1FC11 /* SystemConfiguration.framework */,
 				8FF967D11ED3915600FB924C /* Fabric.framework */,
 				8FF967D21ED3915600FB924C /* Crashlytics.framework */,
@@ -179,12 +186,12 @@
 		8FC3105E1EC04F5400CFBC40 /* vdee */ = {
 			isa = PBXGroup;
 			children = (
-				ABE6585A207AB73500AE95B8 /* RemoteConfigDefaults.plist */,
+				5A7E89B32088206600AF9337 /* GoogleService-Info.plist */,
+				5A7E89B22088206300AF9337 /* RemoteConfigDefaults.plist */,
 				ABE658572078D14800AE95B8 /* FirebaseManager.h */,
 				ABE658582078D14800AE95B8 /* FirebaseManager.m */,
 				ABE658542078CE2A00AE95B8 /* Constants.h */,
 				ABE658552078CE2A00AE95B8 /* Constants.m */,
-				ABE658522078CB8D00AE95B8 /* GoogleService-Info.plist */,
 				8FF967D81ED3CE6300FB924C /* Reachabiliy.m */,
 				8FF967D71ED3CE0A00FB924C /* Reachability.h */,
 				8FC310621EC04F5400CFBC40 /* AppDelegate.h */,
@@ -198,6 +205,8 @@
 				8FC310701EC04F5400CFBC40 /* Info.plist */,
 				8FC3105F1EC04F5400CFBC40 /* Supporting Files */,
 				5A11182C2049CE6F00315DDD /* vdee-Bridging-Header.h */,
+				5A7E89B42088218700AF9337 /* RadioStationsViewController.h */,
+				5A7E89B52088218700AF9337 /* RadioStationsViewController.m */,
 			);
 			path = vdee;
 			sourceTree = "<group>";
@@ -357,8 +366,8 @@
 				8FC3106A1EC04F5400CFBC40 /* Main.storyboard in Resources */,
 				8F95CFAE1EC9017000CF80B2 /* play.png in Resources */,
 				8F95CFB01EC90CA500CF80B2 /* stop.png in Resources */,
-				ABE6585B207AB73500AE95B8 /* RemoteConfigDefaults.plist in Resources */,
-				ABE658532078CB8E00AE95B8 /* GoogleService-Info.plist in Resources */,
+				5A7E89AF2088202F00AF9337 /* RemoteConfigDefaults.plist in Resources */,
+				5A7E89B12088203B00AF9337 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,6 +562,7 @@
 				ABE658592078D14800AE95B8 /* FirebaseManager.m in Sources */,
 				ABE658562078CE2A00AE95B8 /* Constants.m in Sources */,
 				8FC310671EC04F5400CFBC40 /* ViewController.m in Sources */,
+				5A7E89B62088218700AF9337 /* RadioStationsViewController.m in Sources */,
 				8FF967D91ED3CE6300FB924C /* Reachabiliy.m in Sources */,
 				8FC310641EC04F5400CFBC40 /* AppDelegate.m in Sources */,
 				8FC310611EC04F5400CFBC40 /* main.m in Sources */,
