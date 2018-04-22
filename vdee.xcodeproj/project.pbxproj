@@ -29,6 +29,8 @@
 		8FF967D91ED3CE6300FB924C /* Reachabiliy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF967D81ED3CE6300FB924C /* Reachabiliy.m */; };
 		ABE658562078CE2A00AE95B8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE658552078CE2A00AE95B8 /* Constants.m */; };
 		ABE658592078D14800AE95B8 /* FirebaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE658582078D14800AE95B8 /* FirebaseManager.m */; };
+		CC48535C2087E17600B4A475 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC48535B2087E17600B4A475 /* RemoteConfigDefaults.plist */; };
+		CC48535E2087E21E00B4A475 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC48535D2087E21E00B4A475 /* GoogleService-Info.plist */; };
 		E47257CA28360237BBB0AA22 /* Pods_vdee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BABDDEA67FE6E1D61C00DCC2 /* Pods_vdee.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +92,8 @@
 		AC8CCFCC7CF6B4EEC25D9076 /* Pods_vdeeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vdeeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD21BD5FB156C3DF49CC96EF /* Pods-vdee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vdee/Pods-vdee.debug.xcconfig"; sourceTree = "<group>"; };
 		BABDDEA67FE6E1D61C00DCC2 /* Pods_vdee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vdee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC48535B2087E17600B4A475 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
+		CC48535D2087E21E00B4A475 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F00A4E0D629EB84152058295 /* Pods-vdeeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdeeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vdeeTests/Pods-vdeeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FBC8BC4FDD4E03492029A770 /* Pods-vdeeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdeeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vdeeUITests/Pods-vdeeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FCB1D96C69D87A5DB659875A /* Pods-vdeeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdeeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-vdeeUITests/Pods-vdeeUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 				8FF967D81ED3CE6300FB924C /* Reachabiliy.m */,
 				8FF967D71ED3CE0A00FB924C /* Reachability.h */,
 				8FC310621EC04F5400CFBC40 /* AppDelegate.h */,
+				CC48535D2087E21E00B4A475 /* GoogleService-Info.plist */,
+				CC48535B2087E17600B4A475 /* RemoteConfigDefaults.plist */,
 				8FC310631EC04F5400CFBC40 /* AppDelegate.m */,
 				8FC310651EC04F5400CFBC40 /* ViewController.h */,
 				8FC310661EC04F5400CFBC40 /* ViewController.m */,
@@ -358,7 +364,8 @@
 				8FC3106A1EC04F5400CFBC40 /* Main.storyboard in Resources */,
 				8F95CFAE1EC9017000CF80B2 /* play.png in Resources */,
 				8F95CFB01EC90CA500CF80B2 /* stop.png in Resources */,
-				584F071820880B77005F4CAE /* RemoteConfigDefaults.plist in Resources */,
+				CC48535C2087E17600B4A475 /* RemoteConfigDefaults.plist in Resources */,
+				CC48535E2087E21E00B4A475 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

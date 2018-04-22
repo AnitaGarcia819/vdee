@@ -5,7 +5,7 @@
 //  Created by Anita Garcia on 5/8/17.
 //  Copyright © 2017 Anita Garcia. All rights reserved.
 //
-
+@import MediaPlayer;
 #import "ViewController.h"
 #import "Reachability.h"
 #import "AppDelegate.h"
@@ -36,6 +36,9 @@ BOOL isPlaying = false;
 BOOL isLoading = false;
 BOOL noInternet = false;
 BOOL wasInterupted = false;
+MPRemoteCommandCenter *rcc;
+MPRemoteCommand *playCommand ;
+MPRemoteCommand *pauseCommand;
 //Reachability *reach;
 
 - (BOOL)canBecomeFirstResponder { return YES;}
@@ -52,7 +55,7 @@ BOOL wasInterupted = false;
     
     // Connect loading view with scroll view
     //self.scrollView.pagingEnabled = YES;
-    
+        
     // Loading view
     self.loadingView = [[UIView alloc] initWithFrame:CGRectMake(145, 145, 145, 145)];
     self.loadingView.center = CGPointMake(self.scrollView.frame.size.width/2, self.scrollView.frame.size.height/3);
@@ -88,18 +91,50 @@ BOOL wasInterupted = false;
                                              selector:@selector(routeChange:)
                                                  name:AVAudioSessionRouteChangeNotification
                                                object:nil];
+    
+    rcc = [MPRemoteCommandCenter sharedCommandCenter];
+    playCommand = rcc.playCommand;
+    pauseCommand = rcc.pauseCommand;
+    playCommand.enabled = YES;
+    pauseCommand.enabled = YES;
 }
 
 - (IBAction)play_button:(id)sender {
     // Removes InternetError Message
     internetOutageMessage0.hidden = TRUE;
-    
+    FIRRemoteConfig *remoteConfig = [FIRRemoteConfig remoteConfig];
+    //setting up Firebase
     if (!isPlaying) {
         [play_button setTitle:@"Trigger Key Metric" forState:UIControlStateNormal];
         [play_button addTarget:self action:@selector(anImportantUserAction) forControlEvents:UIControlEventTouchUpInside];
-        [self playRadio];
+        
+        if (remoteConfig[controlCenterEnabled].boolValue){
+            //firebase wrapper for background controller
+            [playCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent *event) {
+                [self playRadio];
+                return MPRemoteCommandHandlerStatusSuccess;
+                //command handler  gets access to playRadio function, in background, lockscreen and control center
+            }];
+        }
+            [self playRadio];
+        if (remoteConfig[controlCenterEnabled].boolValue){
+            //firebase wrapper for background controller
+            [pauseCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent *event) {
+                [self stopRadio];
+                return MPRemoteCommandHandlerStatusSuccess;
+                //command handler  gets access to stopRadio function, in background, lockscreen and control center
+            }];
+        }
     } else {
         [self stopRadio];
+        if (remoteConfig[controlCenterEnabled].boolValue){
+            //firebase wrapper for background controller
+            [playCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent *event) {
+                [self playRadio];
+                return MPRemoteCommandHandlerStatusSuccess;
+                //command handler  gets access to playRadio function, in background, lockscreen and control center
+            }];
+        }
     }
 }
 
@@ -178,6 +213,7 @@ BOOL wasInterupted = false;
     // Play radio
     playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.vdee.org:8000/salinas"]]];
     player = [AVPlayer playerWithPlayerItem:playerItem];
+
     [player play];
     
     // Background thread checks if player is ready to play

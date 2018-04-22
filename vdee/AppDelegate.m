@@ -113,7 +113,6 @@ UITabBarController* tabBarController;
     [Fabric with:@[[Crashlytics class]]];
     //[Fabric with:@[[Answers class]]];// Feature tracker.
     
-    
     // Override point for customization after application launch.
     // Set AudioSession
     NSError *sessionError = nil;
