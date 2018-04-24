@@ -376,6 +376,6 @@
     </scenes>
     <resources>
         <image name="play.png" width="225" height="225"/>
-        <image name="vdee_logo.png" width="1024" height="1024"/>
+        <image name="vdee_logo.png" width="400" height="212"/>
     </resources>
 </document>

@@ -12,6 +12,8 @@
 #import "ViewController.h"
 #import "Reachability.h"
 #import <Fabric/Fabric.h>
+#import "Constants.h"
+@import Firebase;
 //#import <Answers/Answers.h>
 
 @interface AppDelegate ()
@@ -51,37 +53,59 @@ UITabBarController* tabBarController;
     else if (remoteHostStatus == ReachableViaWiFi) {NSLog(@"int **** wifi ****"); }
     else if (remoteHostStatus == ReachableViaWWAN) {NSLog(@"init **** cell ****"); }*/
     
-    // setup window
+    //Firebase
+    [FIRApp configure];
+    
+    //Sets up Firebase
+    [FirebaseManager configureRemoteConfig];
+    [FirebaseManager firebase];
+    [FirebaseManager fetchConfig];
+    
+    FIRRemoteConfig *remoteConfig = [FIRRemoteConfig remoteConfig];
+    BOOL tabViewEnabled = remoteConfig[tabViewEnabledConfigKey].boolValue;
+    
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    
-    
-    // ** TabBarController setup
-    
-    tabBarController = [[UITabBarController alloc] init];
-    
-    //ViewController* vc = [[ViewController alloc] init];
-    // setup viewController to add to TabController
-    // instantiate view from storyboard
-    // create NavigationController to embed to ViewController (optional)
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
-    UINavigationController *navRadio = [[UINavigationController alloc] initWithRootViewController:vc];
-    // set tab bar title since using a navigation controller, otherwise set in ViewWillAppear of ViewController
-    [navRadio.tabBarItem setTitle:@"Radio Player"];
     
-    UIViewController *fbFeedVC = [storyboard instantiateViewControllerWithIdentifier:@"FBFeedVC"];
-    UINavigationController *navFBFeed = [[UINavigationController alloc] initWithRootViewController:fbFeedVC];
-    [navFBFeed.tabBarItem setTitle:@"FB Group"];
-    
-    // add ViewControllers or NavigationControllers to array
-    NSArray* controllers = [NSArray arrayWithObjects: navRadio, navFBFeed, nil];
-    tabBarController.viewControllers = controllers;
-    
-    self.window.rootViewController = tabBarController;
+    if (tabViewEnabled) {
+        // setup window
+        // ** TabBarController setup
+        tabBarController = [[UITabBarController alloc] init];
+        
+        // setup viewController to add to TabController
+        // instantiate view from storyboard
+        // create NavigationController to embed to ViewController (optional)
+            /*
+                Note: if you don't embed a Navigation Controller;
+                then, you have to set the tab bar title in the ViewWillAppear method
+                in the desired ViewController
+              */
+        
+        // Example of adding a tab to a view controller and embeding a navigation controller
+        // Note: when using following example, replace identifiers with your own
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
+        UINavigationController *navRadio = [[UINavigationController alloc] initWithRootViewController:vc];
+        // set tab bar title since using a navigation controller, otherwise set in ViewWillAppear of ViewController
+        [navRadio.tabBarItem setTitle:@"Radio Player"];
+        
+        
+        UIViewController *fbFeedVC = [storyboard instantiateViewControllerWithIdentifier:@"FBFeedVC"];
+        UINavigationController *navFBFeed = [[UINavigationController alloc] initWithRootViewController:fbFeedVC];
+        [navFBFeed.tabBarItem setTitle:@"FB Group"];
+        
+        // add ViewControllers or NavigationControllers to array (required **)
+        NSArray* controllers = [NSArray arrayWithObjects: navRadio, navFBFeed, nil];
+        tabBarController.viewControllers = controllers;
+        
+        self.window.rootViewController = tabBarController;
+        // ****
+    } else {
+        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
+        self.window.rootViewController = vc;
+    }
     [self.window makeKeyAndVisible];
-    
-    // **
-    
     
 
     [[UIApplication sharedApplication]
@@ -92,6 +116,7 @@ UITabBarController* tabBarController;
     // Override point for customization after application launch.
     [Fabric with:@[[Crashlytics class]]];
     //[Fabric with:@[[Answers class]]];// Feature tracker.
+    
     
     // Override point for customization after application launch.
     // Set AudioSession
@@ -114,9 +139,7 @@ UITabBarController* tabBarController;
 -(void)dealloc{
     //[reach release];
     //[super dealloc];
-    
     //[tabBarController release];
-    
 }
 
 -(void)application:(UIApplication *)application
@@ -142,7 +165,6 @@ performFetchWithCompletionHandler:
     
     NSLog(@"Background fetch completed...");
 }
-
 
 /*
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -187,5 +209,4 @@ performFetchWithCompletionHandler:
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
 @end
