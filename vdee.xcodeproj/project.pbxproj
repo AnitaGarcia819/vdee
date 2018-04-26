@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3BE5797BF17CF260FA925912 /* Pods_vdeeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC6D20884C92025042295C6B /* Pods_vdeeTests.framework */; };
-		584F071820880B77005F4CAE /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 584F071720880B77005F4CAE /* RemoteConfigDefaults.plist */; };
-		584F071A20880BCE005F4CAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 584F071920880BCE005F4CAE /* GoogleService-Info.plist */; };
 		7749BBC2616DC7A7ED3BFD4E /* Pods_vdeeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8CCFCC7CF6B4EEC25D9076 /* Pods_vdeeUITests.framework */; };
 		8F1AB9DC1EDB7DCA00C1FC11 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1AB9DB1EDB7DCA00C1FC11 /* SystemConfiguration.framework */; };
 		8F7063211ECBFCCD0048D17E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7063201ECBFCCD0048D17E /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -27,6 +25,8 @@
 		8FF967D31ED3915600FB924C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF967D11ED3915600FB924C /* Fabric.framework */; };
 		8FF967D41ED3915600FB924C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF967D21ED3915600FB924C /* Crashlytics.framework */; };
 		8FF967D91ED3CE6300FB924C /* Reachabiliy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF967D81ED3CE6300FB924C /* Reachabiliy.m */; };
+		A2C91BEB209182D500846E59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2C91BEA209182D500846E59 /* GoogleService-Info.plist */; };
+		A2C91BED209182EF00846E59 /* RemoteConfigDefualts.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2C91BEC209182EF00846E59 /* RemoteConfigDefualts.plist */; };
 		ABE658562078CE2A00AE95B8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE658552078CE2A00AE95B8 /* Constants.m */; };
 		ABE658592078D14800AE95B8 /* FirebaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE658582078D14800AE95B8 /* FirebaseManager.m */; };
 		E47257CA28360237BBB0AA22 /* Pods_vdee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BABDDEA67FE6E1D61C00DCC2 /* Pods_vdee.framework */; };
@@ -51,8 +51,6 @@
 
 /* Begin PBXFileReference section */
 		16B858B26EACDE922224AA32 /* Pods-vdee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdee.release.xcconfig"; path = "Pods/Target Support Files/Pods-vdee/Pods-vdee.release.xcconfig"; sourceTree = "<group>"; };
-		584F071720880B77005F4CAE /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
-		584F071920880BCE005F4CAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A11182C2049CE6F00315DDD /* vdee-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vdee-Bridging-Header.h"; sourceTree = "<group>"; };
 		5A5E4DC7FCA749D50E21A850 /* Pods-vdeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdeeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-vdeeTests/Pods-vdeeTests.release.xcconfig"; sourceTree = "<group>"; };
 		8F1AB9DB1EDB7DCA00C1FC11 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -81,6 +79,8 @@
 		8FF967D21ED3915600FB924C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		8FF967D71ED3CE0A00FB924C /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8FF967D81ED3CE6300FB924C /* Reachabiliy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachabiliy.m; sourceTree = "<group>"; };
+		A2C91BEA209182D500846E59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A2C91BEC209182EF00846E59 /* RemoteConfigDefualts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RemoteConfigDefualts.plist; sourceTree = "<group>"; };
 		ABE658542078CE2A00AE95B8 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		ABE658552078CE2A00AE95B8 /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		ABE658572078D14800AE95B8 /* FirebaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseManager.h; sourceTree = "<group>"; };
@@ -196,8 +196,8 @@
 				8FC310701EC04F5400CFBC40 /* Info.plist */,
 				8FC3105F1EC04F5400CFBC40 /* Supporting Files */,
 				5A11182C2049CE6F00315DDD /* vdee-Bridging-Header.h */,
-				584F071720880B77005F4CAE /* RemoteConfigDefaults.plist */,
-				584F071920880BCE005F4CAE /* GoogleService-Info.plist */,
+				A2C91BEA209182D500846E59 /* GoogleService-Info.plist */,
+				A2C91BEC209182EF00846E59 /* RemoteConfigDefualts.plist */,
 			);
 			path = vdee;
 			sourceTree = "<group>";
@@ -352,13 +352,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FC3106F1EC04F5400CFBC40 /* LaunchScreen.storyboard in Resources */,
+				A2C91BEB209182D500846E59 /* GoogleService-Info.plist in Resources */,
 				8FC3106C1EC04F5400CFBC40 /* Assets.xcassets in Resources */,
-				584F071A20880BCE005F4CAE /* GoogleService-Info.plist in Resources */,
+				A2C91BED209182EF00846E59 /* RemoteConfigDefualts.plist in Resources */,
 				8F95CFAA1EC8F31800CF80B2 /* cover_photo.jpg in Resources */,
 				8FC3106A1EC04F5400CFBC40 /* Main.storyboard in Resources */,
 				8F95CFAE1EC9017000CF80B2 /* play.png in Resources */,
 				8F95CFB01EC90CA500CF80B2 /* stop.png in Resources */,
-				584F071820880B77005F4CAE /* RemoteConfigDefaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

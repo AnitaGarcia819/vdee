@@ -63,6 +63,7 @@ UITabBarController* tabBarController;
     
     FIRRemoteConfig *remoteConfig = [FIRRemoteConfig remoteConfig];
     BOOL tabViewEnabled = remoteConfig[tabViewEnabledConfigKey].boolValue;
+    BOOL shareBtnEnabled = remoteConfig[shareBtnEnabledConfigKey].boolValue;
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -84,21 +85,28 @@ UITabBarController* tabBarController;
         // Example of adding a tab to a view controller and embeding a navigation controller
         // Note: when using following example, replace identifiers with your own
         
-//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
-//        UINavigationController *navRadio = [[UINavigationController alloc] initWithRootViewController:vc];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
+        UINavigationController *navRadio = [[UINavigationController alloc] initWithRootViewController:vc];
         // set tab bar title since using a navigation controller, otherwise set in ViewWillAppear of ViewController
-//        [navRadio.tabBarItem setTitle:@"Radio Player"];
+        [navRadio.tabBarItem setTitle:@"Radio Player"];
         
         // add ViewControllers or NavigationControllers to array (required **)
-//        NSArray* controllers = [NSArray arrayWithObjects: navRadio, nil];
-        //tabBarController.viewControllers = controllers;
+        NSArray* controllers = [NSArray arrayWithObjects: navRadio, nil];
+        tabBarController.viewControllers = controllers;
         
         self.window.rootViewController = tabBarController;
         // ****
     } else {
         UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
-        self.window.rootViewController = vc;
+        
+        // check if share btn enabled,to either add navigation controller to use nav bar for share btn
+        if (shareBtnEnabled) {
+            UINavigationController *navRadio = [[UINavigationController alloc] initWithRootViewController:vc];
+            self.window.rootViewController = navRadio;
+        } else {
+            self.window.rootViewController = vc;
+        }
     }
     [self.window makeKeyAndVisible];
     
