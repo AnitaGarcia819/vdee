@@ -14,11 +14,20 @@ class FBFeedViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var webView: UIWebView!
     static let FBGroupURL = "https://facebook.com/EValverdeSr/"
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.delegate = self
+
+        let barButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "back-icon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack))
+        self.navigationItem.setLeftBarButton(barButtonItem, animated: true)
         loadFBGroupWeb()
+    }
+    
+    func goBack() {
+        if (webView.canGoBack) {
+            webView.goBack()
+        }
     }
     
     func loadFBGroupWeb() {
