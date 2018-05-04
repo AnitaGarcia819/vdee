@@ -1,10 +1,4 @@
-//
-//  ViewController.m
-//  vdee
-//
-//  Created by Anita Garcia on 5/8/17.
-//  Copyright © 2017 Anita Garcia. All rights reserved.
-//
+
 @import MediaPlayer;
 #import "ViewController.h"
 #import "Reachability.h"
@@ -14,24 +8,19 @@
 #import "FirebaseManager.h"
 @import Firebase;
 //#import <Answers/Answers.h> // If using Answers without Crashlytics
-
 @interface ViewController ()
-
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *play;
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicatorView;
 @property (nonatomic, retain) UIView *loadingView;
 @property (nonatomic, retain) UILabel *loadingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *internetMessage;
-
 @end
-
 @implementation ViewController
 @synthesize player;
 @synthesize playerItem;
 @synthesize play_button;
 @synthesize internetOutageMessage0;
-
 BOOL isPlaying = false;
 BOOL isLoading = false;
 BOOL noInternet = false;
@@ -331,8 +320,6 @@ MPRemoteCommand *pauseCommand;
 }
 
 @end
-
-
 
 
 
