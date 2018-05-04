@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3BE5797BF17CF260FA925912 /* Pods_vdeeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC6D20884C92025042295C6B /* Pods_vdeeTests.framework */; };
-		584F071820880B77005F4CAE /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 584F071720880B77005F4CAE /* RemoteConfigDefaults.plist */; };
 		584F071A20880BCE005F4CAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 584F071920880BCE005F4CAE /* GoogleService-Info.plist */; };
 		7749BBC2616DC7A7ED3BFD4E /* Pods_vdeeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8CCFCC7CF6B4EEC25D9076 /* Pods_vdeeUITests.framework */; };
 		8F1AB9DC1EDB7DCA00C1FC11 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1AB9DB1EDB7DCA00C1FC11 /* SystemConfiguration.framework */; };
@@ -27,6 +26,7 @@
 		8FF967D31ED3915600FB924C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF967D11ED3915600FB924C /* Fabric.framework */; };
 		8FF967D41ED3915600FB924C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF967D21ED3915600FB924C /* Crashlytics.framework */; };
 		8FF967D91ED3CE6300FB924C /* Reachabiliy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF967D81ED3CE6300FB924C /* Reachabiliy.m */; };
+		A24F541E209BE820003F52DF /* RadioWithPanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A24F541D209BE820003F52DF /* RadioWithPanViewController.m */; };
 		ABE658562078CE2A00AE95B8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE658552078CE2A00AE95B8 /* Constants.m */; };
 		ABE658592078D14800AE95B8 /* FirebaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE658582078D14800AE95B8 /* FirebaseManager.m */; };
 		CC48535C2087E17600B4A475 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC48535B2087E17600B4A475 /* RemoteConfigDefaults.plist */; };
@@ -83,6 +83,8 @@
 		8FF967D21ED3915600FB924C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		8FF967D71ED3CE0A00FB924C /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8FF967D81ED3CE6300FB924C /* Reachabiliy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachabiliy.m; sourceTree = "<group>"; };
+		A24F541C209BE820003F52DF /* RadioWithPanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioWithPanViewController.h; sourceTree = "<group>"; };
+		A24F541D209BE820003F52DF /* RadioWithPanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadioWithPanViewController.m; sourceTree = "<group>"; };
 		ABE658542078CE2A00AE95B8 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		ABE658552078CE2A00AE95B8 /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		ABE658572078D14800AE95B8 /* FirebaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseManager.h; sourceTree = "<group>"; };
@@ -204,6 +206,8 @@
 				5A11182C2049CE6F00315DDD /* vdee-Bridging-Header.h */,
 				584F071720880B77005F4CAE /* RemoteConfigDefaults.plist */,
 				584F071920880BCE005F4CAE /* GoogleService-Info.plist */,
+				A24F541C209BE820003F52DF /* RadioWithPanViewController.h */,
+				A24F541D209BE820003F52DF /* RadioWithPanViewController.m */,
 			);
 			path = vdee;
 			sourceTree = "<group>";
@@ -558,6 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABE658592078D14800AE95B8 /* FirebaseManager.m in Sources */,
+				A24F541E209BE820003F52DF /* RadioWithPanViewController.m in Sources */,
 				ABE658562078CE2A00AE95B8 /* Constants.m in Sources */,
 				8FC310671EC04F5400CFBC40 /* ViewController.m in Sources */,
 				8FF967D91ED3CE6300FB924C /* Reachabiliy.m in Sources */,
