@@ -32,6 +32,13 @@ MPRemoteCommand *pauseCommand;
 
 - (BOOL)canBecomeFirstResponder { return YES;}
 
+- (void) viewWillAppear:(BOOL)animated {
+    UITabBarItem *tabBarItem = [self tabBarItem];
+    if(tabBarItem != nil) {
+        [tabBarItem setTitle:@"Radio Player"];
+    }
+}
+
 - (void)viewDidLoad{
     [super viewDidLoad];
     
