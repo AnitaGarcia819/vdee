@@ -64,7 +64,8 @@ UITabBarController* tabBarController;
     [FirebaseManager fetchConfig];
     
     FIRRemoteConfig *remoteConfig = [FIRRemoteConfig remoteConfig];
-    BOOL tabViewEnabled = FALSE;//remoteConfig[tabViewEnabledConfigKey].boolValue;
+    BOOL tabViewEnabled = remoteConfig[tabViewEnabledConfigKey].boolValue;
+    BOOL timeScheduleEnabled = remoteConfig[timeSchedulePullupEnabledKey].boolValue;
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -105,7 +106,12 @@ UITabBarController* tabBarController;
         self.window.rootViewController = tabBarController;
         // ****
     } else {
-        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"main"];
+        UIViewController *vc;
+        if (timeScheduleEnabled) {
+            vc = [storyboard instantiateViewControllerWithIdentifier:@"pullupTimeSchedule"];
+        } else {
+            vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
+        }
         self.window.rootViewController = vc;
     }
     [self.window makeKeyAndVisible];
