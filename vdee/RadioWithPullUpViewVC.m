@@ -55,7 +55,7 @@ MPRemoteCommand *pauseCommand2;
     
     // Loading view
     self.loadingView = [[UIView alloc] initWithFrame:CGRectMake(145, 145, 145, 145)];
-    self.loadingView.center = CGPointMake(self.scrollView.frame.size.width/2, self.scrollView.frame.size.height/3);
+    self.loadingView.center = self.view.center;//CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/3);
     self.loadingView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     self.loadingView.clipsToBounds = YES;
     self.loadingView.layer.cornerRadius = 10.0;
@@ -196,7 +196,7 @@ MPRemoteCommand *pauseCommand2;
         message = [message uppercaseString];
     }
     [self.loadingView addSubview:self.loadingLabel];
-    [self.scrollView addSubview:self.loadingView];
+    [self.view addSubview:self.loadingView];
     self.loadingLabel.text = message;
 }
 
