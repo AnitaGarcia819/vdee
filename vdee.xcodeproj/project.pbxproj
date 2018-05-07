@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3BE5797BF17CF260FA925912 /* Pods_vdeeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC6D20884C92025042295C6B /* Pods_vdeeTests.framework */; };
-		5A55097D2090258000D66BF6 /* Copy of HomeMock.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A55097C2090258000D66BF6 /* Copy of HomeMock.png */; };
-		5A7E89AF2088202F00AF9337 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A7E89AE2088202F00AF9337 /* RemoteConfigDefaults.plist */; };
-		5A7E89B12088203B00AF9337 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A7E89B02088203B00AF9337 /* GoogleService-Info.plist */; };
 		5A7E89B62088218700AF9337 /* RadioStationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E89B52088218700AF9337 /* RadioStationsViewController.m */; };
 		5A7E89BC2088600E00AF9337 /* radioCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E89BB2088600E00AF9337 /* radioCollectionViewCell.m */; };
 		5A7E89BF208B008800AF9337 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A7E89BD208B008800AF9337 /* Main.storyboard */; };
@@ -30,6 +27,11 @@
 		8FF967D31ED3915600FB924C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF967D11ED3915600FB924C /* Fabric.framework */; };
 		8FF967D41ED3915600FB924C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF967D21ED3915600FB924C /* Crashlytics.framework */; };
 		8FF967D91ED3CE6300FB924C /* Reachabiliy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF967D81ED3CE6300FB924C /* Reachabiliy.m */; };
+		A27013FA209ED545003575DC /* BottomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27013F9209ED545003575DC /* BottomVC.swift */; };
+		A27013FC209ED555003575DC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27013FB209ED555003575DC /* MainViewController.swift */; };
+		A2F63419209FEE01004A24B7 /* Copy of HomeMock.png in Resources */ = {isa = PBXBuildFile; fileRef = A2F63418209FEE01004A24B7 /* Copy of HomeMock.png */; };
+		A2F6342220A00620004A24B7 /* RadioWithPullUpViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F6342120A00620004A24B7 /* RadioWithPullUpViewVC.m */; };
+		A2F6342920A028D0004A24B7 /* PullUpMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F6342820A028D0004A24B7 /* PullUpMainViewController.swift */; };
 		ABE658562078CE2A00AE95B8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE658552078CE2A00AE95B8 /* Constants.m */; };
 		ABE658592078D14800AE95B8 /* FirebaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE658582078D14800AE95B8 /* FirebaseManager.m */; };
 		CC48535C2087E17600B4A475 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC48535B2087E17600B4A475 /* RemoteConfigDefaults.plist */; };
@@ -57,7 +59,6 @@
 /* Begin PBXFileReference section */
 		16B858B26EACDE922224AA32 /* Pods-vdee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdee.release.xcconfig"; path = "Pods/Target Support Files/Pods-vdee/Pods-vdee.release.xcconfig"; sourceTree = "<group>"; };
 		5A11182C2049CE6F00315DDD /* vdee-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vdee-Bridging-Header.h"; sourceTree = "<group>"; };
-		5A55097C2090258000D66BF6 /* Copy of HomeMock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Copy of HomeMock.png"; path = "../../../../Downloads/Copy of HomeMock.png"; sourceTree = "<group>"; };
 		5A5E4DC7FCA749D50E21A850 /* Pods-vdeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdeeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-vdeeTests/Pods-vdeeTests.release.xcconfig"; sourceTree = "<group>"; };
 		5A7E89AE2088202F00AF9337 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RemoteConfigDefaults.plist; path = ../../../Downloads/RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		5A7E89B02088203B00AF9337 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -91,6 +92,12 @@
 		8FF967D21ED3915600FB924C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		8FF967D71ED3CE0A00FB924C /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8FF967D81ED3CE6300FB924C /* Reachabiliy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachabiliy.m; sourceTree = "<group>"; };
+		A27013F9209ED545003575DC /* BottomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomVC.swift; sourceTree = "<group>"; };
+		A27013FB209ED555003575DC /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A2F63418209FEE01004A24B7 /* Copy of HomeMock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Copy of HomeMock.png"; path = "../../Downloads/Copy of HomeMock.png"; sourceTree = "<group>"; };
+		A2F6342020A00620004A24B7 /* RadioWithPullUpViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioWithPullUpViewVC.h; sourceTree = "<group>"; };
+		A2F6342120A00620004A24B7 /* RadioWithPullUpViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadioWithPullUpViewVC.m; sourceTree = "<group>"; };
+		A2F6342820A028D0004A24B7 /* PullUpMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullUpMainViewController.swift; sourceTree = "<group>"; };
 		ABE658542078CE2A00AE95B8 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		ABE658552078CE2A00AE95B8 /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		ABE658572078D14800AE95B8 /* FirebaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseManager.h; sourceTree = "<group>"; };
@@ -199,6 +206,7 @@
 				ABE658552078CE2A00AE95B8 /* Constants.m */,
 				5A7E89BD208B008800AF9337 /* Main.storyboard */,
 				8FF967D81ED3CE6300FB924C /* Reachabiliy.m */,
+				A2F63418209FEE01004A24B7 /* Copy of HomeMock.png */,
 				8FF967D71ED3CE0A00FB924C /* Reachability.h */,
 				8FC310621EC04F5400CFBC40 /* AppDelegate.h */,
 				CC48535D2087E21E00B4A475 /* GoogleService-Info.plist */,
@@ -207,7 +215,6 @@
 				8FC310651EC04F5400CFBC40 /* ViewController.h */,
 				8FC310661EC04F5400CFBC40 /* ViewController.m */,
 				8FC3106B1EC04F5400CFBC40 /* Assets.xcassets */,
-				5A55097C2090258000D66BF6 /* Copy of HomeMock.png */,
 				ABE6585C207B3B2200AE95B8 /* vdee_logo.png */,
 				8FC3106D1EC04F5400CFBC40 /* LaunchScreen.storyboard */,
 				8FC310701EC04F5400CFBC40 /* Info.plist */,
@@ -217,6 +224,11 @@
 				5A7E89B52088218700AF9337 /* RadioStationsViewController.m */,
 				5A7E89BA2088600E00AF9337 /* radioCollectionViewCell.h */,
 				5A7E89BB2088600E00AF9337 /* radioCollectionViewCell.m */,
+				A27013F9209ED545003575DC /* BottomVC.swift */,
+				A27013FB209ED555003575DC /* MainViewController.swift */,
+				A2F6342020A00620004A24B7 /* RadioWithPullUpViewVC.h */,
+				A2F6342120A00620004A24B7 /* RadioWithPullUpViewVC.m */,
+				A2F6342820A028D0004A24B7 /* PullUpMainViewController.swift */,
 			);
 			path = vdee;
 			sourceTree = "<group>";
@@ -370,7 +382,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A55097D2090258000D66BF6 /* Copy of HomeMock.png in Resources */,
+				A2F63419209FEE01004A24B7 /* Copy of HomeMock.png in Resources */,
 				8FC3106F1EC04F5400CFBC40 /* LaunchScreen.storyboard in Resources */,
 				8FC3106C1EC04F5400CFBC40 /* Assets.xcassets in Resources */,
 				8F95CFAA1EC8F31800CF80B2 /* cover_photo.jpg in Resources */,
@@ -444,7 +456,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		23770111C183460A29D2A740 /* [CP] Copy Pods Resources */ = {
@@ -477,7 +489,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		81F823CF284731279C9157F3 /* [CP] Check Pods Manifest.lock */ = {
@@ -495,7 +507,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8D0231017A322A9C43629D85 /* [CP] Embed Pods Frameworks */ = {
@@ -571,13 +583,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABE658592078D14800AE95B8 /* FirebaseManager.m in Sources */,
+				A27013FC209ED555003575DC /* MainViewController.swift in Sources */,
 				ABE658562078CE2A00AE95B8 /* Constants.m in Sources */,
+				A2F6342220A00620004A24B7 /* RadioWithPullUpViewVC.m in Sources */,
 				5A7E89BC2088600E00AF9337 /* radioCollectionViewCell.m in Sources */,
 				8FC310671EC04F5400CFBC40 /* ViewController.m in Sources */,
 				5A7E89B62088218700AF9337 /* RadioStationsViewController.m in Sources */,
 				8FF967D91ED3CE6300FB924C /* Reachabiliy.m in Sources */,
+				A27013FA209ED545003575DC /* BottomVC.swift in Sources */,
 				8FC310641EC04F5400CFBC40 /* AppDelegate.m in Sources */,
 				8FC310611EC04F5400CFBC40 /* main.m in Sources */,
+				A2F6342920A028D0004A24B7 /* PullUpMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,6 +794,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F00A4E0D629EB84152058295 /* Pods-vdeeTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = vdeeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -791,6 +808,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A5E4DC7FCA749D50E21A850 /* Pods-vdeeTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = vdeeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -804,6 +822,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FBC8BC4FDD4E03492029A770 /* Pods-vdeeUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = vdeeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = csumb.vdeeUITests;
@@ -816,6 +835,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FCB1D96C69D87A5DB659875A /* Pods-vdeeUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = vdeeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = csumb.vdeeUITests;

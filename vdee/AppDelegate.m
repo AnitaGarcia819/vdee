@@ -105,7 +105,7 @@ UITabBarController* tabBarController;
         self.window.rootViewController = tabBarController;
         // ****
     } else {
-        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
+        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"main"];
         self.window.rootViewController = vc;
     }
     [self.window makeKeyAndVisible];
