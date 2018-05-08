@@ -332,7 +332,6 @@ MPRemoteCommand *pauseCommand;
 }
 
 - (void)share:(id)sender {
-    // getImage]];
     NSString *appTitle = @"Voz Del Evangelio Eterno";
     NSArray *activityItems = @[appTitle];
     UIActivityViewController *activityViewControntroller = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];

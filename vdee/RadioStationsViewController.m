@@ -11,6 +11,8 @@
 #import "radioCollectionViewCell.h"
 #import "Reachability.h"
 #import "AppDelegate.h"
+#import "FirebaseManager.h"
+#import "Constants.h"
 #import <Crashlytics/Crashlytics.h> // If using Answers with Crashlytics
 //#import <Answers/Answers.h> // If using Answers without Crashlytics
 
@@ -39,8 +41,12 @@ BOOL isPlayingCell3 = false;
 BOOL isPlaying1 = false;
 BOOL noInternet1 = false;
 BOOL wasInterupted1 = false;
+
 // A re-usable cell given an identifier.
 static NSString * const reuseIdentifier = @"Cell1";
+
+UIButton * shareButton;
+
 NSInteger lastPlayedIndex = -1;
 static NSInteger const RADIO_COUNT = 4;
 static NSString * const RADIO_TITLE[] = {
@@ -61,6 +67,15 @@ static NSString * const RADIO_URLS[] = {
 BOOL isWaitingForPlayer = false;
 
 - (BOOL)canBecomeFirstResponder { return YES;}
+
+- (void)viewWillAppear:(BOOL)animated {
+    FIRRemoteConfig *remoteConfig = [FIRRemoteConfig remoteConfig];
+    BOOL shareBtnEnabled = remoteConfig[shareBtnEnabledConfigKey].boolValue;
+    if (shareBtnEnabled) {
+        shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(share:)];
+        self.navigationItem.rightBarButtonItem = shareButton;
+    }
+}
 
 - (void)viewDidLoad{
     [super viewDidLoad];
@@ -355,6 +370,21 @@ BOOL isWaitingForPlayer = false;
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+- (void)share:(id)sender {
+    NSString *appTitle = @"Voz Del Evangelio Eterno";
+    NSArray *activityItems = @[appTitle];
+    UIActivityViewController *activityViewControntroller = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    activityViewControntroller.excludedActivityTypes = @[];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        activityViewControntroller.popoverPresentationController.sourceView = self.view;
+        activityViewControntroller.popoverPresentationController.sourceRect = CGRectMake(self.view.bounds.size.width/2, self.view.bounds.size.height/4, 0, 0);
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentViewController:activityViewControntroller animated:true completion:nil];
+    });
+}
+
 @end
 
 
