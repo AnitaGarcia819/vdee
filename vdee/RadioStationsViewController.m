@@ -6,14 +6,16 @@
 //  Copyright © 2018 Anita Garcia. All rights reserved.
 //
 
-
+@import MediaPlayer;
 #import <UIKit/UIKit.h>
 #import "radioCollectionViewCell.h"
 #import "Reachability.h"
 #import "AppDelegate.h"
+#import "Constants.h"
 #import <Crashlytics/Crashlytics.h> // If using Answers with Crashlytics
 //#import <Answers/Answers.h> // If using Answers without Crashlytics
-
+#import "FirebaseManager.h"
+@import Firebase;
 #import "RadioStationsViewController.h"
 
 @interface RadioStationsViewController ()
@@ -39,6 +41,11 @@ BOOL isPlayingCell3 = false;
 BOOL isPlaying1 = false;
 BOOL noInternet1 = false;
 BOOL wasInterupted1 = false;
+MPRemoteCommandCenter *rcc1;
+MPRemoteCommand *playCommand1 ;
+MPRemoteCommand *pauseCommand1;
+MPRemoteCommand *nextTrackCommand;
+MPNowPlayingInfoCenter* info;
 // A re-usable cell given an identifier.
 static NSString * const reuseIdentifier = @"Cell1";
 NSInteger lastPlayedIndex = -1;
@@ -78,6 +85,16 @@ BOOL isWaitingForPlayer = false;
                                              selector:@selector(routeChange:)
                                                  name:AVAudioSessionRouteChangeNotification
                                                object:nil];
+    
+    rcc1 = [MPRemoteCommandCenter sharedCommandCenter];
+    playCommand1 = rcc1.playCommand;
+    pauseCommand1 = rcc1.pauseCommand;
+    nextTrackCommand = rcc1.nextTrackCommand;
+    playCommand1.enabled = YES;
+    pauseCommand1.enabled = YES;
+    nextTrackCommand.enabled = YES;
+    
+    
 }
 
 
@@ -222,7 +239,7 @@ BOOL isWaitingForPlayer = false;
 }
 
 - (void) activateRadioCell:(NSString*) link: (id) sender {
-  // With the sender object we are able to identify which button within a cell is being played.
+    // With the sender object we are able to identify which button within a cell is being played.
     UIButton *button = (UIButton *)sender;
     //Once we have the button we can check it's super view to understand what cell needs to be manipulated. Also the cell contains a loading indicator view, grabbing it's superview is great to manipulate objects within the cell.
     radioCollectionViewCell *cell = (radioCollectionViewCell *)[[button superview] superview];
@@ -235,7 +252,10 @@ BOOL isWaitingForPlayer = false;
     playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", link]]];
     NSLog(@"%@", playerItem);
     player = [AVPlayer playerWithPlayerItem:playerItem];
+
+    
     [player play];
+
     
     // Background thread checks if player is ready to play
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -319,17 +339,74 @@ BOOL isWaitingForPlayer = false;
 // Converting sender object into a button to be able to edit the buttons image
 // The sender is also passed in playRadioCell method to determine where the button was pressed and what activity indicator to display.
 - (IBAction)buttonClicked:(id)sender {
+    NSMutableDictionary* newInfo = [NSMutableDictionary dictionary];
+    info = [MPNowPlayingInfoCenter defaultCenter];
+    FIRRemoteConfig *remoteConfig = [FIRRemoteConfig remoteConfig];
     UIButton *button = (UIButton *)sender;
-    
+
     if (isPlaying1) {
         [self stopRadio];
+      
     } else {
+        if (remoteConfig[controlCenterEnabled].boolValue){
+            //firebase wrapper for background controller
+            [playCommand1 addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent *event) {
+                [player play];
+                [self changeButtonImg:button name:@"stop.png"];
+                return MPRemoteCommandHandlerStatusSuccess;
+                //command handler  gets access to playRadio function, in background, lockscreen and control center
+            }];
+        }
+        
         lastPlayedIndex = [sender tag];
         
         [self changeButtonImg:button name:@"stop.png"];
         //[Answers logCustomEventWithName:@"Salinas Was Played" customAttributes:@{@"Category":@"Radio Stations", @"Length":@350}];
         [self playRadioCell: RADIO_URLS[lastPlayedIndex]: sender];
+        [newInfo setObject:RADIO_TITLE[lastPlayedIndex] forKey:MPMediaItemPropertyTitle];
+        //[newInfo setObject:RADIO_URLS[lastPlayedIndex] forKey:MPMediaItemPropertyArtist];
+        //adds link to source, but it can be ignored.
+
+        info.nowPlayingInfo = newInfo;
+
+        if (remoteConfig[controlCenterEnabled].boolValue){
+            //firebase wrapper for background controller
+            [pauseCommand1 addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent *event) {
+                [self stopRadio];
+                [self changeButtonImg:button name:@"play.png"];
+                return MPRemoteCommandHandlerStatusSuccess;
+                //command handler  gets access to stopRadio function, in background, lockscreen and control center
+            }];
+        }
+        [self changeRadioStation:sender] ;
+        
+  
     }
+}
+- (void)changeRadioStation:(id)sender {
+    NSMutableDictionary* newInfo = [NSMutableDictionary dictionary];
+    lastPlayedIndex = [sender tag];
+    [nextTrackCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent *event) {
+        lastPlayedIndex++;
+        if(lastPlayedIndex > 3){
+            lastPlayedIndex = 0;
+        }
+        [self playRadioCell: RADIO_URLS[lastPlayedIndex]: sender];
+        [newInfo setObject:RADIO_TITLE[lastPlayedIndex] forKey:MPMediaItemPropertyTitle];
+        //[newInfo setObject:RADIO_URLS[lastPlayedIndex] forKey:MPMediaItemPropertyArtist];
+        //adds link to source, but it can be ignored.
+        
+        info.nowPlayingInfo = newInfo;
+        
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:lastPlayedIndex inSection:lastPlayedIndex];
+        radioCollectionViewCell * cell = (radioCollectionViewCell *) [_radioCollectionView cellForItemAtIndexPath:indexPath];
+        cell.playButton.tag = indexPath.row;
+        [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
+
+        return MPRemoteCommandHandlerStatusSuccess;
+    }];
+    
+
 }
 
 - (void)routeChange:(NSNotification*)notification {
