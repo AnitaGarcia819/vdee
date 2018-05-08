@@ -41,8 +41,12 @@ MPRemoteCommand *pauseCommand;
         shareBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(share:)];
         self.navigationItem.rightBarButtonItem = shareBtn;
     }
+    
+    UITabBarItem *tabBarItem = [self tabBarItem];
+    if(tabBarItem != nil) {
+        [tabBarItem setTitle:@"Radio Player"];
+    }
 }
-
 
 - (void)viewDidLoad{
     [super viewDidLoad];

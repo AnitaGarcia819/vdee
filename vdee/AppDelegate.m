@@ -88,6 +88,18 @@ UITabBarController* tabBarController;
         // Note: when using following example, replace identifiers with your own
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
+//        UINavigationController *navRadio = [[UINavigationController alloc] initWithRootViewController:vc];
+        // set tab bar title since using a navigation controller, otherwise set in ViewWillAppear of ViewController
+//        [navRadio.tabBarItem setTitle:@"Radio Player"];
+        
+        
+        UIViewController *fbFeedVC = [storyboard instantiateViewControllerWithIdentifier:@"FBFeedVC"];
+        UINavigationController *navFBFeed = [[UINavigationController alloc] initWithRootViewController:fbFeedVC];
+        [navFBFeed.tabBarItem setTitle:@"FB Group"];
+        
+        // add ViewControllers or NavigationControllers to array (required **)
+//        NSArray* controllers = [NSArray arrayWithObjects: navRadio, navFBFeed, nil];
        // UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
          UIViewController *mrvc = [storyboard instantiateViewControllerWithIdentifier:@"MultipleRadioVC"];
         
@@ -100,7 +112,7 @@ UITabBarController* tabBarController;
           [mnavRadio.tabBarItem setTitle:@"Radio Stations"];
         
        //  add ViewControllers or NavigationControllers to array (required **)
-        NSArray* controllers = [NSArray arrayWithObjects: mnavRadio, nil];
+        NSArray* controllers = [NSArray arrayWithObjects: mnavRadio, navFBFeed, nil];
         tabBarController.viewControllers = controllers;
         
         self.window.rootViewController = tabBarController;
@@ -117,7 +129,6 @@ UITabBarController* tabBarController;
         }
     }
     [self.window makeKeyAndVisible];
-    
     
 
     [[UIApplication sharedApplication]
