@@ -1,7 +1,7 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-xcodeproj '/Users/lauracape/Desktop/vdee/vdee.xcodeproj'
+project ‘vdee.xcodeproj’
 
 target 'vdee' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks

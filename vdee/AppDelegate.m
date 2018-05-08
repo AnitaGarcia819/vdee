@@ -9,10 +9,12 @@
 #import "AppDelegate.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
-#import "ViewController.h"
+#import "RadioStationsViewController.h"
 #import "Reachability.h"
 #import <Fabric/Fabric.h>
 #import "Constants.h"
+#import "FirebaseManager.h"
+
 @import Firebase;
 //#import <Answers/Answers.h>
 
@@ -86,13 +88,19 @@ UITabBarController* tabBarController;
         // Note: when using following example, replace identifiers with your own
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
-        UINavigationController *navRadio = [[UINavigationController alloc] initWithRootViewController:vc];
-        // set tab bar title since using a navigation controller, otherwise set in ViewWillAppear of ViewController
-        [navRadio.tabBarItem setTitle:@"Radio Player"];
+       // UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
+         UIViewController *mrvc = [storyboard instantiateViewControllerWithIdentifier:@"MultipleRadioVC"];
         
-        // add ViewControllers or NavigationControllers to array (required **)
-        NSArray* controllers = [NSArray arrayWithObjects: navRadio, nil];
+        
+       // UINavigationController *navRadio = [[UINavigationController alloc] initWithRootViewController:vc];
+         UINavigationController *mnavRadio = [[UINavigationController alloc] initWithRootViewController:mrvc];
+        
+        // set tab bar title since using a navigation controller, otherwise set in ViewWillAppear of ViewController
+      //  [navRadio.tabBarItem setTitle:@"Radio Player"];
+          [mnavRadio.tabBarItem setTitle:@"Radio Stations"];
+        
+       //  add ViewControllers or NavigationControllers to array (required **)
+        NSArray* controllers = [NSArray arrayWithObjects: mnavRadio, nil];
         tabBarController.viewControllers = controllers;
         
         self.window.rootViewController = tabBarController;
@@ -115,12 +123,11 @@ UITabBarController* tabBarController;
     [[UIApplication sharedApplication]
      setMinimumBackgroundFetchInterval:
      UIApplicationBackgroundFetchIntervalMinimum];
-    //[application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+[application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
     // Override point for customization after application launch.
     [Fabric with:@[[Crashlytics class]]];
     //[Fabric with:@[[Answers class]]];// Feature tracker.
-    
     
     // Override point for customization after application launch.
     // Set AudioSession
@@ -154,7 +161,7 @@ performFetchWithCompletionHandler:
     //---do background fetch here---
     // You have up to 30 seconds to perform the fetch
     
-    ViewController * vc = [[ViewController alloc]init];
+    RadioStationsViewController * vc = [[RadioStationsViewController alloc]init];
     [vc checkInternetConnection];
     
     BOOL downloadSuccessful = YES;

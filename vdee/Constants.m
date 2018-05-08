@@ -15,5 +15,5 @@ NSString *const loadingMessageConfigKey = @"loading_message";
 NSString *const loadingMessageCapsConfigKey = @"loading_message_caps";
 NSString *const tabViewEnabledConfigKey = @"tab_view_feature_enabled";
 NSString *const shareBtnEnabledConfigKey = @"share_btn_enabled";
-
+NSString *const controlCenterEnabled = @"control_center_feature_enabled";
 @end

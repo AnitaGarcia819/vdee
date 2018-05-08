@@ -16,6 +16,9 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
+GoogleService-Info.plist
+RemoteConfigDefaults.plist
+
 
 ## Other
 *.moved-aside
@@ -61,3 +64,8 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+#FIREBASE 
+#
+vdee/GoogleService-Info.plist
+vdee/RemoteConfigDefaults.plist
