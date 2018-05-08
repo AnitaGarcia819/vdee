@@ -25,6 +25,8 @@ BOOL isPlaying = false;
 BOOL isLoading = false;
 BOOL noInternet = false;
 BOOL wasInterupted = false;
+UIBarButtonItem * shareBtn;
+
 MPRemoteCommandCenter *rcc;
 MPRemoteCommand *playCommand ;
 MPRemoteCommand *pauseCommand;
@@ -32,7 +34,14 @@ MPRemoteCommand *pauseCommand;
 
 - (BOOL)canBecomeFirstResponder { return YES;}
 
-- (void) viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
+    FIRRemoteConfig *remoteConfig = [FIRRemoteConfig remoteConfig];
+    BOOL shareBtnEnabled = remoteConfig[shareBtnEnabledConfigKey].boolValue;
+    if (shareBtnEnabled) {
+        shareBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(share:)];
+        self.navigationItem.rightBarButtonItem = shareBtn;
+    }
+    
     UITabBarItem *tabBarItem = [self tabBarItem];
     if(tabBarItem != nil) {
         [tabBarItem setTitle:@"Radio Player"];
@@ -320,6 +329,20 @@ MPRemoteCommand *pauseCommand;
         default:
             break;
     }
+}
+
+- (void)share:(id)sender {
+    NSString *appTitle = @"Voz Del Evangelio Eterno";
+    NSArray *activityItems = @[appTitle];
+    UIActivityViewController *activityViewControntroller = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    activityViewControntroller.excludedActivityTypes = @[];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        activityViewControntroller.popoverPresentationController.sourceView = self.view;
+        activityViewControntroller.popoverPresentationController.sourceRect = CGRectMake(self.view.bounds.size.width/2, self.view.bounds.size.height/4, 0, 0);
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentViewController:activityViewControntroller animated:true completion:nil];
+    });
 }
 
 -(void)dealloc{

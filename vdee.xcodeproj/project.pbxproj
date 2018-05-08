@@ -10,7 +10,6 @@
 		3BE5797BF17CF260FA925912 /* Pods_vdeeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC6D20884C92025042295C6B /* Pods_vdeeTests.framework */; };
 		581C0F6E2076F577007FB455 /* FBFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581C0F6D2076F577007FB455 /* FBFeedViewController.swift */; };
 		58533D7C2075F7FB00046B36 /* FBFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58533D7B2075F7FB00046B36 /* FBFeedViewController.m */; };
-		58FC5F37209D878A001613F4 /* Copy of HomeMock.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FC5F36209D8789001613F4 /* Copy of HomeMock.png */; };
 		5A7E89B62088218700AF9337 /* RadioStationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E89B52088218700AF9337 /* RadioStationsViewController.m */; };
 		5A7E89BC2088600E00AF9337 /* radioCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E89BB2088600E00AF9337 /* radioCollectionViewCell.m */; };
 		5A7E89BF208B008800AF9337 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A7E89BD208B008800AF9337 /* Main.storyboard */; };
@@ -30,10 +29,11 @@
 		8FF967D31ED3915600FB924C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF967D11ED3915600FB924C /* Fabric.framework */; };
 		8FF967D41ED3915600FB924C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF967D21ED3915600FB924C /* Crashlytics.framework */; };
 		8FF967D91ED3CE6300FB924C /* Reachabiliy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF967D81ED3CE6300FB924C /* Reachabiliy.m */; };
+		A20D382520A15D0C0062D973 /* Copy of HomeMock.png in Resources */ = {isa = PBXBuildFile; fileRef = A20D382420A15D0C0062D973 /* Copy of HomeMock.png */; };
+		A20D382720A162140062D973 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A20D382620A162140062D973 /* GoogleService-Info.plist */; };
 		ABE658562078CE2A00AE95B8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE658552078CE2A00AE95B8 /* Constants.m */; };
 		ABE658592078D14800AE95B8 /* FirebaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE658582078D14800AE95B8 /* FirebaseManager.m */; };
 		CC48535C2087E17600B4A475 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC48535B2087E17600B4A475 /* RemoteConfigDefaults.plist */; };
-		CC48535E2087E21E00B4A475 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC48535D2087E21E00B4A475 /* GoogleService-Info.plist */; };
 		E47257CA28360237BBB0AA22 /* Pods_vdee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BABDDEA67FE6E1D61C00DCC2 /* Pods_vdee.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,14 +58,10 @@
 		16B858B26EACDE922224AA32 /* Pods-vdee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdee.release.xcconfig"; path = "Pods/Target Support Files/Pods-vdee/Pods-vdee.release.xcconfig"; sourceTree = "<group>"; };
 		581C0F6D2076F577007FB455 /* FBFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBFeedViewController.swift; sourceTree = "<group>"; };
 		584F071720880B77005F4CAE /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
-		584F071920880BCE005F4CAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		58533D7B2075F7FB00046B36 /* FBFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBFeedViewController.m; sourceTree = "<group>"; };
 		58533D7D2075F81D00046B36 /* FBFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBFeedViewController.h; sourceTree = "<group>"; };
-		58FC5F36209D8789001613F4 /* Copy of HomeMock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Copy of HomeMock.png"; path = "../../../Downloads/Copy of HomeMock.png"; sourceTree = "<group>"; };
 		5A11182C2049CE6F00315DDD /* vdee-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vdee-Bridging-Header.h"; sourceTree = "<group>"; };
 		5A5E4DC7FCA749D50E21A850 /* Pods-vdeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdeeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-vdeeTests/Pods-vdeeTests.release.xcconfig"; sourceTree = "<group>"; };
-		5A7E89AE2088202F00AF9337 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RemoteConfigDefaults.plist; path = ../../../Downloads/RemoteConfigDefaults.plist; sourceTree = "<group>"; };
-		5A7E89B02088203B00AF9337 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A7E89B42088218700AF9337 /* RadioStationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RadioStationsViewController.h; sourceTree = "<group>"; };
 		5A7E89B52088218700AF9337 /* RadioStationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RadioStationsViewController.m; sourceTree = "<group>"; };
 		5A7E89BA2088600E00AF9337 /* radioCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = radioCollectionViewCell.h; sourceTree = "<group>"; };
@@ -96,6 +92,9 @@
 		8FF967D21ED3915600FB924C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		8FF967D71ED3CE0A00FB924C /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8FF967D81ED3CE6300FB924C /* Reachabiliy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachabiliy.m; sourceTree = "<group>"; };
+		A20D382420A15D0C0062D973 /* Copy of HomeMock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Copy of HomeMock.png"; path = "../../Downloads/Copy of HomeMock.png"; sourceTree = "<group>"; };
+		A20D382620A162140062D973 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A2C91BEA209182D500846E59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ABE658542078CE2A00AE95B8 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		ABE658552078CE2A00AE95B8 /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		ABE658572078D14800AE95B8 /* FirebaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseManager.h; sourceTree = "<group>"; };
@@ -106,7 +105,6 @@
 		AD21BD5FB156C3DF49CC96EF /* Pods-vdee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vdee/Pods-vdee.debug.xcconfig"; sourceTree = "<group>"; };
 		BABDDEA67FE6E1D61C00DCC2 /* Pods_vdee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vdee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC48535B2087E17600B4A475 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
-		CC48535D2087E21E00B4A475 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F00A4E0D629EB84152058295 /* Pods-vdeeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdeeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vdeeTests/Pods-vdeeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FBC8BC4FDD4E03492029A770 /* Pods-vdeeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdeeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vdeeUITests/Pods-vdeeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FCB1D96C69D87A5DB659875A /* Pods-vdeeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdeeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-vdeeUITests/Pods-vdeeUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -170,8 +168,6 @@
 		8FC310531EC04F5400CFBC40 = {
 			isa = PBXGroup;
 			children = (
-				5A7E89AE2088202F00AF9337 /* RemoteConfigDefaults.plist */,
-				5A7E89B02088203B00AF9337 /* GoogleService-Info.plist */,
 				8F1AB9DB1EDB7DCA00C1FC11 /* SystemConfiguration.framework */,
 				8FF967D11ED3915600FB924C /* Fabric.framework */,
 				8FF967D21ED3915600FB924C /* Crashlytics.framework */,
@@ -206,12 +202,11 @@
 				8FF967D81ED3CE6300FB924C /* Reachabiliy.m */,
 				8FF967D71ED3CE0A00FB924C /* Reachability.h */,
 				8FC310621EC04F5400CFBC40 /* AppDelegate.h */,
-				CC48535D2087E21E00B4A475 /* GoogleService-Info.plist */,
-				58FC5F36209D8789001613F4 /* Copy of HomeMock.png */,
 				CC48535B2087E17600B4A475 /* RemoteConfigDefaults.plist */,
 				8FC310631EC04F5400CFBC40 /* AppDelegate.m */,
 				8FC310651EC04F5400CFBC40 /* ViewController.h */,
 				8FC310661EC04F5400CFBC40 /* ViewController.m */,
+				A20D382420A15D0C0062D973 /* Copy of HomeMock.png */,
 				8FC3106B1EC04F5400CFBC40 /* Assets.xcassets */,
 				ABE6585C207B3B2200AE95B8 /* vdee_logo.png */,
 				8FC3106D1EC04F5400CFBC40 /* LaunchScreen.storyboard */,
@@ -222,11 +217,11 @@
 				58533D7D2075F81D00046B36 /* FBFeedViewController.h */,
 				581C0F6D2076F577007FB455 /* FBFeedViewController.swift */,
 				584F071720880B77005F4CAE /* RemoteConfigDefaults.plist */,
-				584F071920880BCE005F4CAE /* GoogleService-Info.plist */,
 				5A7E89B42088218700AF9337 /* RadioStationsViewController.h */,
 				5A7E89B52088218700AF9337 /* RadioStationsViewController.m */,
 				5A7E89BA2088600E00AF9337 /* radioCollectionViewCell.h */,
 				5A7E89BB2088600E00AF9337 /* radioCollectionViewCell.m */,
+				A20D382620A162140062D973 /* GoogleService-Info.plist */,
 			);
 			path = vdee;
 			sourceTree = "<group>";
@@ -380,15 +375,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58FC5F37209D878A001613F4 /* Copy of HomeMock.png in Resources */,
 				8FC3106F1EC04F5400CFBC40 /* LaunchScreen.storyboard in Resources */,
+				A2C91BEB209182D500846E59 /* GoogleService-Info.plist in Resources */,
 				8FC3106C1EC04F5400CFBC40 /* Assets.xcassets in Resources */,
 				8F95CFAA1EC8F31800CF80B2 /* cover_photo.jpg in Resources */,
 				5A7E89BF208B008800AF9337 /* Main.storyboard in Resources */,
 				8F95CFAE1EC9017000CF80B2 /* play.png in Resources */,
 				8F95CFB01EC90CA500CF80B2 /* stop.png in Resources */,
+				A20D382720A162140062D973 /* GoogleService-Info.plist in Resources */,
+				A20D382520A15D0C0062D973 /* Copy of HomeMock.png in Resources */,
 				CC48535C2087E17600B4A475 /* RemoteConfigDefaults.plist in Resources */,
-				CC48535E2087E21E00B4A475 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,7 +450,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		23770111C183460A29D2A740 /* [CP] Copy Pods Resources */ = {
@@ -487,7 +483,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		81F823CF284731279C9157F3 /* [CP] Check Pods Manifest.lock */ = {
@@ -505,7 +501,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8D0231017A322A9C43629D85 /* [CP] Embed Pods Frameworks */ = {

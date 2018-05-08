@@ -64,7 +64,8 @@ UITabBarController* tabBarController;
     [FirebaseManager fetchConfig];
     
     FIRRemoteConfig *remoteConfig = [FIRRemoteConfig remoteConfig];
-    BOOL tabViewEnabled = FALSE;//remoteConfig[tabViewEnabledConfigKey].boolValue;
+    BOOL tabViewEnabled = remoteConfig[tabViewEnabledConfigKey].boolValue;
+    BOOL shareBtnEnabled = remoteConfig[shareBtnEnabledConfigKey].boolValue;
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -118,7 +119,14 @@ UITabBarController* tabBarController;
         // ****
     } else {
         UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
-        self.window.rootViewController = vc;
+        
+        // check if share btn enabled,to either add navigation controller to use nav bar for share btn
+        if (shareBtnEnabled) {
+            UINavigationController *navRadio = [[UINavigationController alloc] initWithRootViewController:vc];
+            self.window.rootViewController = navRadio;
+        } else {
+            self.window.rootViewController = vc;
+        }
     }
     [self.window makeKeyAndVisible];
     
