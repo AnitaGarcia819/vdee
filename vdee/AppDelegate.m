@@ -111,10 +111,14 @@ UITabBarController* tabBarController;
       //  [navRadio.tabBarItem setTitle:@"Radio Player"];
           [mnavRadio.tabBarItem setTitle:@"Radio Stations"];
         
-       //  add ViewControllers or NavigationControllers to array (required **)
-        NSArray* controllers = [NSArray arrayWithObjects: mnavRadio, navFBFeed, nil];
-        tabBarController.viewControllers = controllers;
         
+        UIViewController *contactUsVC = [storyboard instantiateViewControllerWithIdentifier:@"contact_us"];
+        UINavigationController *navContactUs = [[UINavigationController alloc] initWithRootViewController:contactUsVC];
+        [navContactUs.tabBarItem setTitle:@"Contact Us"];
+        
+       //  add ViewControllers or NavigationControllers to array (required **)
+        NSArray* controllers = [NSArray arrayWithObjects: mnavRadio, navFBFeed, navContactUs, nil];
+        tabBarController.viewControllers = controllers;
         self.window.rootViewController = tabBarController;
         // ****
     } else {
