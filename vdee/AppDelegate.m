@@ -64,6 +64,7 @@ UITabBarController* tabBarController;
     [FirebaseManager fetchConfig];
     
     FIRRemoteConfig *remoteConfig = [FIRRemoteConfig remoteConfig];
+
     BOOL tabViewEnabled = remoteConfig[tabViewEnabledConfigKey].boolValue;
     BOOL shareBtnEnabled = remoteConfig[shareBtnEnabledConfigKey].boolValue;
     
@@ -88,35 +89,27 @@ UITabBarController* tabBarController;
         // Note: when using following example, replace identifiers with your own
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
-//        UINavigationController *navRadio = [[UINavigationController alloc] initWithRootViewController:vc];
+        //UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
+        //UINavigationController *navRadio = [[UINavigationController alloc] initWithRootViewController:vc];
         // set tab bar title since using a navigation controller, otherwise set in ViewWillAppear of ViewController
-//        [navRadio.tabBarItem setTitle:@"Radio Player"];
-        
+        //[navRadio.tabBarItem setTitle:@"Radio Player"];
         
         UIViewController *fbFeedVC = [storyboard instantiateViewControllerWithIdentifier:@"FBFeedVC"];
         UINavigationController *navFBFeed = [[UINavigationController alloc] initWithRootViewController:fbFeedVC];
         [navFBFeed.tabBarItem setTitle:@"FB Group"];
+
+        UIViewController *mrvc = [storyboard instantiateViewControllerWithIdentifier:@"MultipleRadioVC"];
+        UINavigationController *mnavRadio = [[UINavigationController alloc] initWithRootViewController:mrvc];
+        [mnavRadio.tabBarItem setTitle:@"Radio Stations"];
+      
+        UIViewController *bibvc = [storyboard instantiateViewControllerWithIdentifier:@"BibleVC"];
+        UINavigationController *navBible = [[UINavigationController alloc] initWithRootViewController:bibvc];
+        [navBible.tabBarItem setTitle:@"Bible"];
         
-        // add ViewControllers or NavigationControllers to array (required **)
-//        NSArray* controllers = [NSArray arrayWithObjects: navRadio, navFBFeed, nil];
-       // UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
-         UIViewController *mrvc = [storyboard instantiateViewControllerWithIdentifier:@"MultipleRadioVC"];
-        
-        
-       // UINavigationController *navRadio = [[UINavigationController alloc] initWithRootViewController:vc];
-         UINavigationController *mnavRadio = [[UINavigationController alloc] initWithRootViewController:mrvc];
-        
-        // set tab bar title since using a navigation controller, otherwise set in ViewWillAppear of ViewController
-      //  [navRadio.tabBarItem setTitle:@"Radio Player"];
-          [mnavRadio.tabBarItem setTitle:@"Radio Stations"];
-        
-       //  add ViewControllers or NavigationControllers to array (required **)
-        NSArray* controllers = [NSArray arrayWithObjects: mnavRadio, navFBFeed, nil];
+        //add ViewControllers or NavigationControllers to array (required **)
+        NSArray* controllers = [NSArray arrayWithObjects: mnavRadio, navFBFeed, navBible, nil];
         tabBarController.viewControllers = controllers;
-        
         self.window.rootViewController = tabBarController;
-        // ****
     } else {
         UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RadioVC"];
         

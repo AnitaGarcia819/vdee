@@ -29,11 +29,31 @@
 		8FF967D31ED3915600FB924C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF967D11ED3915600FB924C /* Fabric.framework */; };
 		8FF967D41ED3915600FB924C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF967D21ED3915600FB924C /* Crashlytics.framework */; };
 		8FF967D91ED3CE6300FB924C /* Reachabiliy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF967D81ED3CE6300FB924C /* Reachabiliy.m */; };
-		A20D382520A15D0C0062D973 /* Copy of HomeMock.png in Resources */ = {isa = PBXBuildFile; fileRef = A20D382420A15D0C0062D973 /* Copy of HomeMock.png */; };
-		A20D382720A162140062D973 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A20D382620A162140062D973 /* GoogleService-Info.plist */; };
+		AB59E53D209EA4ED009E201C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB59E53B209EA4ED009E201C /* GoogleService-Info.plist */; };
+		AB59E53E209EA4ED009E201C /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB59E53C209EA4ED009E201C /* RemoteConfigDefaults.plist */; };
+		AB59E543209EA776009E201C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB59E541209EA776009E201C /* GoogleService-Info.plist */; };
+		AB59E544209EA776009E201C /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB59E542209EA776009E201C /* RemoteConfigDefaults.plist */; };
+		AB59E549209EAC7C009E201C /* BookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59E548209EAC7C009E201C /* BookTableViewController.m */; };
+		AB59E54F209EB173009E201C /* BooksItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59E54E209EB173009E201C /* BooksItem.m */; };
+		AB59E552209EB1E7009E201C /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59E551209EB1E7009E201C /* Book.m */; };
+		AB59E555209EB28C009E201C /* Books.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59E554209EB28C009E201C /* Books.m */; };
+		AB59E558209EB307009E201C /* BooksResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59E557209EB307009E201C /* BooksResponse.m */; };
+		AB59E55F209EB448009E201C /* ChaptersItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59E55E209EB448009E201C /* ChaptersItem.m */; };
+		AB59E562209EB48B009E201C /* Meta.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59E561209EB48B009E201C /* Meta.m */; };
+		AB59E565209EB4C7009E201C /* Next.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59E564209EB4C7009E201C /* Next.m */; };
+		AB59E568209EB52A009E201C /* Parent.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59E567209EB52A009E201C /* Parent.m */; };
+		AB59E56B209EB577009E201C /* Previous.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59E56A209EB577009E201C /* Previous.m */; };
+		AB59E56E209EB5B5009E201C /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59E56D209EB5B4009E201C /* Response.m */; };
+		AB59E571209EB5F8009E201C /* Version.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59E570209EB5F8009E201C /* Version.m */; };
+		AB59E574209ED25D009E201C /* ChaptersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59E573209ED25D009E201C /* ChaptersTableViewController.m */; };
+		AB59E57A209FC7DC009E201C /* Chapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59E579209FC7DC009E201C /* Chapter.m */; };
+		AB59E57D209FCAC9009E201C /* ChaptersResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59E57C209FCAC9009E201C /* ChaptersResponse.m */; };
+		AB59E580209FE98A009E201C /* VersesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59E57F209FE98A009E201C /* VersesTableViewController.m */; };
+		AB59E584209FEE6A009E201C /* Verse.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59E583209FEE6A009E201C /* Verse.m */; };
+		AB59E587209FF007009E201C /* VersesItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59E586209FF007009E201C /* VersesItem.m */; };
 		ABE658562078CE2A00AE95B8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE658552078CE2A00AE95B8 /* Constants.m */; };
 		ABE658592078D14800AE95B8 /* FirebaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE658582078D14800AE95B8 /* FirebaseManager.m */; };
-		CC48535C2087E17600B4A475 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC48535B2087E17600B4A475 /* RemoteConfigDefaults.plist */; };
+		A20D382520A15D0C0062D973 /* Copy of HomeMock.png in Resources */ = {isa = PBXBuildFile; fileRef = A20D382420A15D0C0062D973 /* Copy of HomeMock.png */; };
 		E47257CA28360237BBB0AA22 /* Pods_vdee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BABDDEA67FE6E1D61C00DCC2 /* Pods_vdee.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +112,48 @@
 		8FF967D21ED3915600FB924C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		8FF967D71ED3CE0A00FB924C /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8FF967D81ED3CE6300FB924C /* Reachabiliy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachabiliy.m; sourceTree = "<group>"; };
+		AB59E53B209EA4ED009E201C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AB59E53C209EA4ED009E201C /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RemoteConfigDefaults.plist; path = ../RemoteConfigDefaults.plist; sourceTree = "<group>"; };
+		AB59E541209EA776009E201C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AB59E542209EA776009E201C /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RemoteConfigDefaults.plist; path = ../../RemoteConfigDefaults.plist; sourceTree = "<group>"; };
+		AB59E545209EA7AB009E201C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AB59E546209EA7AB009E201C /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
+		AB59E547209EAC7C009E201C /* BookTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookTableViewController.h; sourceTree = "<group>"; };
+		AB59E548209EAC7C009E201C /* BookTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookTableViewController.m; sourceTree = "<group>"; };
+		AB59E54D209EB173009E201C /* BooksItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BooksItem.h; sourceTree = "<group>"; };
+		AB59E54E209EB173009E201C /* BooksItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BooksItem.m; sourceTree = "<group>"; };
+		AB59E550209EB1E7009E201C /* Book.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		AB59E551209EB1E7009E201C /* Book.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		AB59E553209EB28C009E201C /* Books.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Books.h; sourceTree = "<group>"; };
+		AB59E554209EB28C009E201C /* Books.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Books.m; sourceTree = "<group>"; };
+		AB59E556209EB307009E201C /* BooksResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BooksResponse.h; sourceTree = "<group>"; };
+		AB59E557209EB307009E201C /* BooksResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BooksResponse.m; sourceTree = "<group>"; };
+		AB59E55D209EB448009E201C /* ChaptersItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChaptersItem.h; sourceTree = "<group>"; };
+		AB59E55E209EB448009E201C /* ChaptersItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChaptersItem.m; sourceTree = "<group>"; };
+		AB59E560209EB48B009E201C /* Meta.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Meta.h; sourceTree = "<group>"; };
+		AB59E561209EB48B009E201C /* Meta.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Meta.m; sourceTree = "<group>"; };
+		AB59E563209EB4C7009E201C /* Next.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Next.h; sourceTree = "<group>"; };
+		AB59E564209EB4C7009E201C /* Next.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Next.m; sourceTree = "<group>"; };
+		AB59E566209EB52A009E201C /* Parent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Parent.h; sourceTree = "<group>"; };
+		AB59E567209EB52A009E201C /* Parent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Parent.m; sourceTree = "<group>"; };
+		AB59E569209EB577009E201C /* Previous.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Previous.h; sourceTree = "<group>"; };
+		AB59E56A209EB577009E201C /* Previous.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Previous.m; sourceTree = "<group>"; };
+		AB59E56C209EB5B4009E201C /* Response.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Response.h; sourceTree = "<group>"; };
+		AB59E56D209EB5B4009E201C /* Response.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
+		AB59E56F209EB5F8009E201C /* Version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Version.h; sourceTree = "<group>"; };
+		AB59E570209EB5F8009E201C /* Version.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Version.m; sourceTree = "<group>"; };
+		AB59E572209ED25D009E201C /* ChaptersTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChaptersTableViewController.h; sourceTree = "<group>"; };
+		AB59E573209ED25D009E201C /* ChaptersTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChaptersTableViewController.m; sourceTree = "<group>"; };
+		AB59E578209FC7DC009E201C /* Chapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Chapter.h; sourceTree = "<group>"; };
+		AB59E579209FC7DC009E201C /* Chapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Chapter.m; sourceTree = "<group>"; };
+		AB59E57B209FCAC9009E201C /* ChaptersResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChaptersResponse.h; sourceTree = "<group>"; };
+		AB59E57C209FCAC9009E201C /* ChaptersResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChaptersResponse.m; sourceTree = "<group>"; };
+		AB59E57E209FE98A009E201C /* VersesTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VersesTableViewController.h; sourceTree = "<group>"; };
+		AB59E57F209FE98A009E201C /* VersesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VersesTableViewController.m; sourceTree = "<group>"; };
+		AB59E582209FEE6A009E201C /* Verse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Verse.h; sourceTree = "<group>"; };
+		AB59E583209FEE6A009E201C /* Verse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Verse.m; sourceTree = "<group>"; };
+		AB59E585209FF007009E201C /* VersesItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VersesItem.h; sourceTree = "<group>"; };
+		AB59E586209FF007009E201C /* VersesItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VersesItem.m; sourceTree = "<group>"; };
 		A20D382420A15D0C0062D973 /* Copy of HomeMock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Copy of HomeMock.png"; path = "../../Downloads/Copy of HomeMock.png"; sourceTree = "<group>"; };
 		A20D382620A162140062D973 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A2C91BEA209182D500846E59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -168,6 +230,8 @@
 		8FC310531EC04F5400CFBC40 = {
 			isa = PBXGroup;
 			children = (
+				AB59E53B209EA4ED009E201C /* GoogleService-Info.plist */,
+				AB59E53C209EA4ED009E201C /* RemoteConfigDefaults.plist */,
 				8F1AB9DB1EDB7DCA00C1FC11 /* SystemConfiguration.framework */,
 				8FF967D11ED3915600FB924C /* Fabric.framework */,
 				8FF967D21ED3915600FB924C /* Crashlytics.framework */,
@@ -194,6 +258,9 @@
 		8FC3105E1EC04F5400CFBC40 /* vdee */ = {
 			isa = PBXGroup;
 			children = (
+				AB59E575209FACC9009E201C /* Bible */,
+				AB59E541209EA776009E201C /* GoogleService-Info.plist */,
+				AB59E542209EA776009E201C /* RemoteConfigDefaults.plist */,
 				ABE658572078D14800AE95B8 /* FirebaseManager.h */,
 				ABE658582078D14800AE95B8 /* FirebaseManager.m */,
 				ABE658542078CE2A00AE95B8 /* Constants.h */,
@@ -221,6 +288,12 @@
 				5A7E89B52088218700AF9337 /* RadioStationsViewController.m */,
 				5A7E89BA2088600E00AF9337 /* radioCollectionViewCell.h */,
 				5A7E89BB2088600E00AF9337 /* radioCollectionViewCell.m */,
+				AB59E547209EAC7C009E201C /* BookTableViewController.h */,
+				AB59E548209EAC7C009E201C /* BookTableViewController.m */,
+				AB59E572209ED25D009E201C /* ChaptersTableViewController.h */,
+				AB59E573209ED25D009E201C /* ChaptersTableViewController.m */,
+				AB59E57E209FE98A009E201C /* VersesTableViewController.h */,
+				AB59E57F209FE98A009E201C /* VersesTableViewController.m */,
 				A20D382620A162140062D973 /* GoogleService-Info.plist */,
 			);
 			path = vdee;
@@ -229,6 +302,8 @@
 		8FC3105F1EC04F5400CFBC40 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AB59E545209EA7AB009E201C /* GoogleService-Info.plist */,
+				AB59E546209EA7AB009E201C /* RemoteConfigDefaults.plist */,
 				8F737F041EE36486008968CD /* vdee_logo.png */,
 				8F95CFAF1EC90CA500CF80B2 /* stop.png */,
 				8F95CFAC1EC9017000CF80B2 /* play.png */,
@@ -254,6 +329,67 @@
 				8FC310861EC04F5400CFBC40 /* Info.plist */,
 			);
 			path = vdeeUITests;
+			sourceTree = "<group>";
+		};
+		AB59E575209FACC9009E201C /* Bible */ = {
+			isa = PBXGroup;
+			children = (
+				AB59E581209FEE59009E201C /* VersesRequest */,
+				AB59E577209FC1FB009E201C /* ChaptersRequest */,
+				AB59E576209FC1D2009E201C /* BookRequest */,
+			);
+			name = Bible;
+			sourceTree = "<group>";
+		};
+		AB59E576209FC1D2009E201C /* BookRequest */ = {
+			isa = PBXGroup;
+			children = (
+				AB59E54D209EB173009E201C /* BooksItem.h */,
+				AB59E54E209EB173009E201C /* BooksItem.m */,
+				AB59E556209EB307009E201C /* BooksResponse.h */,
+				AB59E557209EB307009E201C /* BooksResponse.m */,
+				AB59E550209EB1E7009E201C /* Book.h */,
+				AB59E551209EB1E7009E201C /* Book.m */,
+				AB59E553209EB28C009E201C /* Books.h */,
+				AB59E554209EB28C009E201C /* Books.m */,
+				AB59E560209EB48B009E201C /* Meta.h */,
+				AB59E561209EB48B009E201C /* Meta.m */,
+				AB59E563209EB4C7009E201C /* Next.h */,
+				AB59E564209EB4C7009E201C /* Next.m */,
+				AB59E566209EB52A009E201C /* Parent.h */,
+				AB59E567209EB52A009E201C /* Parent.m */,
+				AB59E569209EB577009E201C /* Previous.h */,
+				AB59E56A209EB577009E201C /* Previous.m */,
+				AB59E56C209EB5B4009E201C /* Response.h */,
+				AB59E56D209EB5B4009E201C /* Response.m */,
+				AB59E56F209EB5F8009E201C /* Version.h */,
+				AB59E570209EB5F8009E201C /* Version.m */,
+			);
+			name = BookRequest;
+			sourceTree = "<group>";
+		};
+		AB59E577209FC1FB009E201C /* ChaptersRequest */ = {
+			isa = PBXGroup;
+			children = (
+				AB59E578209FC7DC009E201C /* Chapter.h */,
+				AB59E579209FC7DC009E201C /* Chapter.m */,
+				AB59E57B209FCAC9009E201C /* ChaptersResponse.h */,
+				AB59E57C209FCAC9009E201C /* ChaptersResponse.m */,
+				AB59E55D209EB448009E201C /* ChaptersItem.h */,
+				AB59E55E209EB448009E201C /* ChaptersItem.m */,
+			);
+			name = ChaptersRequest;
+			sourceTree = "<group>";
+		};
+		AB59E581209FEE59009E201C /* VersesRequest */ = {
+			isa = PBXGroup;
+			children = (
+				AB59E582209FEE6A009E201C /* Verse.h */,
+				AB59E583209FEE6A009E201C /* Verse.m */,
+				AB59E585209FF007009E201C /* VersesItem.h */,
+				AB59E586209FF007009E201C /* VersesItem.m */,
+			);
+			name = VersesRequest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,9 +518,11 @@
 				5A7E89BF208B008800AF9337 /* Main.storyboard in Resources */,
 				8F95CFAE1EC9017000CF80B2 /* play.png in Resources */,
 				8F95CFB01EC90CA500CF80B2 /* stop.png in Resources */,
-				A20D382720A162140062D973 /* GoogleService-Info.plist in Resources */,
+				AB59E543209EA776009E201C /* GoogleService-Info.plist in Resources */,
+				AB59E53D209EA4ED009E201C /* GoogleService-Info.plist in Resources */,
+				AB59E53E209EA4ED009E201C /* RemoteConfigDefaults.plist in Resources */,
+				AB59E544209EA776009E201C /* RemoteConfigDefaults.plist in Resources */,
 				A20D382520A15D0C0062D973 /* Copy of HomeMock.png in Resources */,
-				CC48535C2087E17600B4A475 /* RemoteConfigDefaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,16 +714,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB59E552209EB1E7009E201C /* Book.m in Sources */,
 				581C0F6E2076F577007FB455 /* FBFeedViewController.swift in Sources */,
+				AB59E587209FF007009E201C /* VersesItem.m in Sources */,
+				AB59E55F209EB448009E201C /* ChaptersItem.m in Sources */,
 				ABE658592078D14800AE95B8 /* FirebaseManager.m in Sources */,
 				ABE658562078CE2A00AE95B8 /* Constants.m in Sources */,
+				AB59E54F209EB173009E201C /* BooksItem.m in Sources */,
+				AB59E56B209EB577009E201C /* Previous.m in Sources */,
+				AB59E558209EB307009E201C /* BooksResponse.m in Sources */,
+				AB59E549209EAC7C009E201C /* BookTableViewController.m in Sources */,
+				AB59E56E209EB5B5009E201C /* Response.m in Sources */,
+				AB59E571209EB5F8009E201C /* Version.m in Sources */,
 				5A7E89BC2088600E00AF9337 /* radioCollectionViewCell.m in Sources */,
+				AB59E574209ED25D009E201C /* ChaptersTableViewController.m in Sources */,
 				8FC310671EC04F5400CFBC40 /* ViewController.m in Sources */,
 				5A7E89B62088218700AF9337 /* RadioStationsViewController.m in Sources */,
+				AB59E568209EB52A009E201C /* Parent.m in Sources */,
 				8FF967D91ED3CE6300FB924C /* Reachabiliy.m in Sources */,
 				8FC310641EC04F5400CFBC40 /* AppDelegate.m in Sources */,
+				AB59E57D209FCAC9009E201C /* ChaptersResponse.m in Sources */,
+				AB59E562209EB48B009E201C /* Meta.m in Sources */,
+				AB59E57A209FC7DC009E201C /* Chapter.m in Sources */,
+				AB59E584209FEE6A009E201C /* Verse.m in Sources */,
+				AB59E565209EB4C7009E201C /* Next.m in Sources */,
 				8FC310611EC04F5400CFBC40 /* main.m in Sources */,
+				AB59E555209EB28C009E201C /* Books.m in Sources */,
 				58533D7C2075F7FB00046B36 /* FBFeedViewController.m in Sources */,
+				AB59E580209FE98A009E201C /* VersesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
