@@ -33,6 +33,8 @@
 		ABE658592078D14800AE95B8 /* FirebaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE658582078D14800AE95B8 /* FirebaseManager.m */; };
 		CC48535C2087E17600B4A475 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC48535B2087E17600B4A475 /* RemoteConfigDefaults.plist */; };
 		CC48535E2087E21E00B4A475 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC48535D2087E21E00B4A475 /* GoogleService-Info.plist */; };
+		CC7A758420A36CA600247A18 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC7A758320A36CA600247A18 /* RemoteConfigDefaults.plist */; };
+		CC7A758620A36CC600247A18 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC7A758520A36CC600247A18 /* GoogleService-Info.plist */; };
 		E47257CA28360237BBB0AA22 /* Pods_vdee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BABDDEA67FE6E1D61C00DCC2 /* Pods_vdee.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,8 +64,6 @@
 		58533D7D2075F81D00046B36 /* FBFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBFeedViewController.h; sourceTree = "<group>"; };
 		5A11182C2049CE6F00315DDD /* vdee-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vdee-Bridging-Header.h"; sourceTree = "<group>"; };
 		5A5E4DC7FCA749D50E21A850 /* Pods-vdeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdeeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-vdeeTests/Pods-vdeeTests.release.xcconfig"; sourceTree = "<group>"; };
-		5A7E89AE2088202F00AF9337 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RemoteConfigDefaults.plist; path = ../../../Downloads/RemoteConfigDefaults.plist; sourceTree = "<group>"; };
-		5A7E89B02088203B00AF9337 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A7E89B42088218700AF9337 /* RadioStationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RadioStationsViewController.h; sourceTree = "<group>"; };
 		5A7E89B52088218700AF9337 /* RadioStationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RadioStationsViewController.m; sourceTree = "<group>"; };
 		5A7E89BA2088600E00AF9337 /* radioCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = radioCollectionViewCell.h; sourceTree = "<group>"; };
@@ -105,6 +105,8 @@
 		BABDDEA67FE6E1D61C00DCC2 /* Pods_vdee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vdee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC48535B2087E17600B4A475 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		CC48535D2087E21E00B4A475 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CC7A758320A36CA600247A18 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
+		CC7A758520A36CC600247A18 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F00A4E0D629EB84152058295 /* Pods-vdeeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdeeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vdeeTests/Pods-vdeeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FBC8BC4FDD4E03492029A770 /* Pods-vdeeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdeeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vdeeUITests/Pods-vdeeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FCB1D96C69D87A5DB659875A /* Pods-vdeeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vdeeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-vdeeUITests/Pods-vdeeUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -168,8 +170,6 @@
 		8FC310531EC04F5400CFBC40 = {
 			isa = PBXGroup;
 			children = (
-				5A7E89AE2088202F00AF9337 /* RemoteConfigDefaults.plist */,
-				5A7E89B02088203B00AF9337 /* GoogleService-Info.plist */,
 				8F1AB9DB1EDB7DCA00C1FC11 /* SystemConfiguration.framework */,
 				8FF967D11ED3915600FB924C /* Fabric.framework */,
 				8FF967D21ED3915600FB924C /* Crashlytics.framework */,
@@ -236,6 +236,8 @@
 				8F95CFAC1EC9017000CF80B2 /* play.png */,
 				8F95CFA91EC8F31800CF80B2 /* cover_photo.jpg */,
 				8FC310601EC04F5400CFBC40 /* main.m */,
+				CC7A758320A36CA600247A18 /* RemoteConfigDefaults.plist */,
+				CC7A758520A36CC600247A18 /* GoogleService-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -378,6 +380,8 @@
 				5A7E89BF208B008800AF9337 /* Main.storyboard in Resources */,
 				8F95CFAE1EC9017000CF80B2 /* play.png in Resources */,
 				8F95CFB01EC90CA500CF80B2 /* stop.png in Resources */,
+				CC7A758420A36CA600247A18 /* RemoteConfigDefaults.plist in Resources */,
+				CC7A758620A36CC600247A18 /* GoogleService-Info.plist in Resources */,
 				CC48535C2087E17600B4A475 /* RemoteConfigDefaults.plist in Resources */,
 				CC48535E2087E21E00B4A475 /* GoogleService-Info.plist in Resources */,
 			);
