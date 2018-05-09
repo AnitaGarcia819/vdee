@@ -25,8 +25,6 @@ class FBFeedViewController: UIViewController, UIWebViewDelegate {
         btn.sizeToFit()
         btn.addTarget(self, action: #selector(goBack), for: UIControlEvents.touchUpInside)
         self.navigationItem.setLeftBarButton(UIBarButtonItem(customView: btn), animated: true)
-//        let barButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "back-icon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack))
-//        self.navigationItem.setLeftBarButton(barButtonItem, animated: true)
         loadFBGroupWeb()
     }
     
