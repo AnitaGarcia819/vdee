@@ -21,6 +21,7 @@
 @interface RadioStationsViewController ()
 
 
+
 @property (weak, nonatomic) IBOutlet UIImageView *play;
 @property (nonatomic, retain) UIView *loadingView;
 @property (nonatomic, retain) UILabel *loadingLabel;
@@ -41,11 +42,11 @@ BOOL isPlayingCell3 = false;
 BOOL isPlaying1 = false;
 BOOL noInternet1 = false;
 BOOL wasInterupted1 = false;
-
+NSInteger indexRowPath = 0;
 // A re-usable cell given an identifier.
 static NSString * const reuseIdentifier = @"Cell1";
 
-UIButton * shareButton;
+UIBarButtonItem * shareButton;
 
 NSInteger lastPlayedIndex = -1;
 static NSInteger const RADIO_COUNT = 4;
@@ -73,7 +74,10 @@ BOOL isWaitingForPlayer = false;
     BOOL shareBtnEnabled = remoteConfig[shareBtnEnabledConfigKey].boolValue;
     if (shareBtnEnabled) {
         shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(share:)];
+        UIImage *btnImage = [UIImage imageNamed:@"play.png"];
+        self.navigationItem.rightBarButtonItem.image = btnImage;
         self.navigationItem.rightBarButtonItem = shareButton;
+       
     }
 }
 
@@ -93,6 +97,8 @@ BOOL isWaitingForPlayer = false;
                                              selector:@selector(routeChange:)
                                                  name:AVAudioSessionRouteChangeNotification
                                                object:nil];
+    
+    
 }
 
 
@@ -192,6 +198,7 @@ BOOL isWaitingForPlayer = false;
 //        UIImage *btnImage = [UIImage imageNamed:@"stop.png"];
 //        [radioCell.playButton setImage:btnImage forState:UIControlStateNormal];
 //    }
+    
 }
 - (UICollectionViewCell *) collectionView: (UICollectionView *) collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
      [collectionView flashScrollIndicators];
@@ -213,6 +220,7 @@ BOOL isWaitingForPlayer = false;
         [cell.playButton setHidden:false];
         [self changeButtonImg:cell.playButton name:@"play1.png"];
     }
+    indexRowPath = indexPath.row;
     return cell;
 }
 
@@ -303,19 +311,20 @@ BOOL isWaitingForPlayer = false;
     CGFloat cellSpacing = ((UICollectionViewFlowLayout *) collectionViewLayout).minimumLineSpacing;
     CGFloat cellWidth = ((UICollectionViewFlowLayout *) collectionViewLayout).itemSize.width;
     NSInteger cellCount = [collectionView numberOfItemsInSection:section];
-    CGFloat inset = (collectionView.bounds.size.width - (cellCount * cellWidth) - ((cellCount - 1)*cellSpacing)) * 0.5;
+    CGFloat inset = (collectionView.bounds.size.width - (cellCount * cellWidth) - ((cellCount - 1)*cellSpacing))/2;
     inset = MAX(inset, 0.0);
     return UIEdgeInsetsMake(0.0, inset, 0.0, 0.0);
 }
-
-// Snap to position
+ //Snap to position
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    float pageWidth = 373 +250; // width + space
     
+    float pageWidth = 358 + 0; // width + space
+
     float currentOffset = scrollView.contentOffset.x;
+    float currentOffsetY = scrollView.contentOffset.y;
     float targetOffset = targetContentOffset->x;
     float newTargetOffset = 0;
-    
+
     if (targetOffset > currentOffset) {
         newTargetOffset = ceilf(currentOffset / pageWidth) * pageWidth;
     } else {
@@ -327,9 +336,9 @@ BOOL isWaitingForPlayer = false;
         newTargetOffset = scrollView.contentSize.width;
     }
     targetContentOffset->x = currentOffset;
-    [scrollView setContentOffset:CGPointMake(newTargetOffset, 0) animated:YES];
+    [scrollView setContentOffset:CGPointMake(newTargetOffset, currentOffsetY) animated:YES];
+     [self.radioCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:indexRowPath inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
 }
-
 // When the user clicks the button this action gets triggered.
 // Converting sender object into a button to be able to edit the buttons image
 // The sender is also passed in playRadioCell method to determine where the button was pressed and what activity indicator to display.
@@ -361,7 +370,6 @@ BOOL isWaitingForPlayer = false;
             break;
     }
 }
-
 - (void) changeButtonImg: (UIButton *) btn name: (NSString *) imgName {
     UIImage *img = [UIImage imageNamed:imgName];
     [btn setImage:img forState:UIControlStateNormal];
@@ -370,6 +378,11 @@ BOOL isWaitingForPlayer = false;
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(collectionView.bounds.size.width, ((UICollectionViewFlowLayout *) collectionViewLayout).itemSize.height);
+}
+
+
 
 - (void)share:(id)sender {
     NSString *appTitle = @"Voz Del Evangelio Eterno";

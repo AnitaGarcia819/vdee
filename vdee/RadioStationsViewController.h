@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
-@interface RadioStationsViewController : UIViewController <AVPlayerViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>{
+@interface RadioStationsViewController : UIViewController <AVPlayerViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate >{
+    
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *radioCollectionView;
 @property(nonatomic,strong) AVPlayer *player;

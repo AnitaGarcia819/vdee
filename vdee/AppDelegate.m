@@ -64,10 +64,8 @@ UITabBarController* tabBarController;
     [FirebaseManager fetchConfig];
     
     FIRRemoteConfig *remoteConfig = [FIRRemoteConfig remoteConfig];
-
     BOOL tabViewEnabled = remoteConfig[tabViewEnabledConfigKey].boolValue;
-    BOOL shareBtnEnabled = remoteConfig[shareBtnEnabledConfigKey].boolValue;
-    
+    BOOL shareBtnEnabled = remoteConfig[shareBtnEnabledConfigKey].boolValue;    
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
@@ -97,14 +95,18 @@ UITabBarController* tabBarController;
         UIViewController *fbFeedVC = [storyboard instantiateViewControllerWithIdentifier:@"FBFeedVC"];
         UINavigationController *navFBFeed = [[UINavigationController alloc] initWithRootViewController:fbFeedVC];
         [navFBFeed.tabBarItem setTitle:@"FB Group"];
+        [navFBFeed.tabBarItem setImage:[UIImage imageNamed:@"newspaper-7.png"]];
 
         UIViewController *mrvc = [storyboard instantiateViewControllerWithIdentifier:@"MultipleRadioVC"];
         UINavigationController *mnavRadio = [[UINavigationController alloc] initWithRootViewController:mrvc];
         [mnavRadio.tabBarItem setTitle:@"Radio Stations"];
+        [mnavRadio.tabBarItem setImage:[UIImage imageNamed:@"music-7.png"]];
+         
       
         UIViewController *bibvc = [storyboard instantiateViewControllerWithIdentifier:@"BibleVC"];
         UINavigationController *navBible = [[UINavigationController alloc] initWithRootViewController:bibvc];
         [navBible.tabBarItem setTitle:@"Bible"];
+        [navBible.tabBarItem setImage:[UIImage imageNamed:@"book-simple-7.png"]];
         
         //add ViewControllers or NavigationControllers to array (required **)
         NSArray* controllers = [NSArray arrayWithObjects: mnavRadio, navFBFeed, navBible, nil];
