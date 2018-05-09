@@ -18,9 +18,15 @@ class FBFeedViewController: UIViewController, UIWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.delegate = self
-
-        let barButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "back-icon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack))
-        self.navigationItem.setLeftBarButton(barButtonItem, animated: true)
+        let btn = UIButton(type: .system)
+        
+        btn.setImage(#imageLiteral(resourceName: "back-icon"), for: .normal)
+        btn.setTitle("Previous Page", for: .normal)
+        btn.sizeToFit()
+        btn.addTarget(self, action: #selector(goBack), for: UIControlEvents.touchUpInside)
+        self.navigationItem.setLeftBarButton(UIBarButtonItem(customView: btn), animated: true)
+//        let barButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "back-icon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack))
+//        self.navigationItem.setLeftBarButton(barButtonItem, animated: true)
         loadFBGroupWeb()
     }
     

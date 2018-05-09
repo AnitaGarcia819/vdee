@@ -350,14 +350,15 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="901-bS-mSu">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="901-bS-mSu">
                                 <rect key="frame" x="177" y="323" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="901-bS-mSu" firstAttribute="centerY" secondItem="jxq-Mz-Bad" secondAttribute="centerY" id="5Y9-Gj-Dwa"/>
                             <constraint firstItem="dz7-mZ-i9g" firstAttribute="top" secondItem="S6s-zT-9IL" secondAttribute="bottom" id="ICv-PZ-5o7"/>
+                            <constraint firstItem="901-bS-mSu" firstAttribute="centerX" secondItem="jxq-Mz-Bad" secondAttribute="centerX" id="d5p-vE-6d9"/>
                             <constraint firstItem="S6s-zT-9IL" firstAttribute="top" secondItem="914-cb-mKJ" secondAttribute="bottom" id="euy-vJ-Jat"/>
                             <constraint firstItem="S6s-zT-9IL" firstAttribute="leading" secondItem="jxq-Mz-Bad" secondAttribute="leading" id="nvI-ke-AQh"/>
                             <constraint firstAttribute="trailing" secondItem="S6s-zT-9IL" secondAttribute="trailing" id="r4l-Hm-ybV"/>
