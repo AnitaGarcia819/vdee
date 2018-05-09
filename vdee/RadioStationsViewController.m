@@ -17,6 +17,7 @@
 #import "FirebaseManager.h"
 @import Firebase;
 #import "RadioStationsViewController.h"
+#import <Crashlytics/Crashlytics.h> // If using Answers with Crashlytics
 
 @interface RadioStationsViewController ()
 
@@ -96,12 +97,17 @@ BOOL isWaitingForPlayer = false;
     
     
 }
-
-
+//
+//-(void)viewDidLayoutSubviews:(id)sender{
+//    lastPlayedIndex = [sender tag];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:lastPlayedIndex inSection:0];
+//    [super viewDidLayoutSubviews];
+//    [self.radioCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
+//}
 // Stops radio
 - (void) stopRadio {
     player.rate = 0.0;
-   // Stops the radio station that is playing, also resets all cells.
+    // Stops the radio station that is playing, also resets all cells.
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:lastPlayedIndex inSection:0];
     radioCollectionViewCell * cell = (radioCollectionViewCell *) [_radioCollectionView cellForItemAtIndexPath:indexPath];
     [self changeButtonImg:cell.playButton name:@"play1.png"];
@@ -162,7 +168,7 @@ BOOL isWaitingForPlayer = false;
              NSLog(@"Reachability: INTERUPTION");
              [self stopLoadingBox];
              }*/
-           
+            
             if(isPlaying1){
                 isPlaying1 = FALSE;
             }
@@ -185,18 +191,18 @@ BOOL isWaitingForPlayer = false;
 
 - (void) collectionView: (UICollectionView *) collectionView willDisplayCell:(nonnull UICollectionViewCell *)cell forItemAtIndexPath:(nonnull NSIndexPath *)indexPath{
     radioCollectionViewCell * radioCell = (radioCollectionViewCell *) cell;
-//    switch (
-//    if (!isPlayingCell3 && radioCell.playButton.tag == 3) {
-//        UIImage *btnImage = [UIImage imageNamed:@"play.png"];
-//        [radioCell.playButton setImage:btnImage forState:UIControlStateNormal];
-//    }
-//    if (isPlayingCell1 && radioCell.playButton.tag == 1) {
-//        UIImage *btnImage = [UIImage imageNamed:@"stop.png"];
-//        [radioCell.playButton setImage:btnImage forState:UIControlStateNormal];
-//    }
+    //    switch (
+    //    if (!isPlayingCell3 && radioCell.playButton.tag == 3) {
+    //        UIImage *btnImage = [UIImage imageNamed:@"play.png"];
+    //        [radioCell.playButton setImage:btnImage forState:UIControlStateNormal];
+    //    }
+    //    if (isPlayingCell1 && radioCell.playButton.tag == 1) {
+    //        UIImage *btnImage = [UIImage imageNamed:@"stop.png"];
+    //        [radioCell.playButton setImage:btnImage forState:UIControlStateNormal];
+    //    }
 }
 - (UICollectionViewCell *) collectionView: (UICollectionView *) collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-     [collectionView flashScrollIndicators];
+    [collectionView flashScrollIndicators];
     radioCollectionViewCell *cell = (radioCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     if (isWaitingForPlayer && ![cell.act isAnimating] && indexPath.row == lastPlayedIndex) {
         [cell.act startAnimating];
@@ -244,7 +250,7 @@ BOOL isWaitingForPlayer = false;
     //Once we have the button we can check it's super view to understand what cell needs to be manipulated. Also the cell contains a loading indicator view, grabbing it's superview is great to manipulate objects within the cell.
     radioCollectionViewCell *cell = (radioCollectionViewCell *)[[button superview] superview];
     [cell.act startAnimating];
-     cell.loadingLabel.layer.cornerRadius = 10.0;
+    cell.loadingLabel.layer.cornerRadius = 10.0;
     [cell.loadingMessage setHidden:false];
     [cell.playButton setHidden:true];
     [cell.loadingLabel setHidden:false];
@@ -252,10 +258,10 @@ BOOL isWaitingForPlayer = false;
     playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", link]]];
     NSLog(@"%@", playerItem);
     player = [AVPlayer playerWithPlayerItem:playerItem];
-
+    
     
     [player play];
-
+    
     
     // Background thread checks if player is ready to play
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -272,28 +278,28 @@ BOOL isWaitingForPlayer = false;
                 isWaitingForPlayer = false;
                 [cell.act stopAnimating];
                 [self changeButtonImg:cell.playButton name:@"stop.png"];
-               // UIImage *btnImage = [UIImage imageNamed:@"stop.png"];
-               // [cell.playButton setImage:btnImage forState:UIControlStateNormal];
+                // UIImage *btnImage = [UIImage imageNamed:@"stop.png"];
+                // [cell.playButton setImage:btnImage forState:UIControlStateNormal];
                 // Change play flag
-               cell.loadingLabel.layer.cornerRadius = 10.0;
+                cell.loadingLabel.layer.cornerRadius = 10.0;
                 [cell.loadingMessage setHidden:true];
                 [cell.loadingLabel setHidden:true];
                 [cell.playButton setHidden:false];
                 isPlaying1 = true;
                 switch ([sender tag]) {
-                        case 0:
-                isPlayingCell0 = true;
+                    case 0:
+                        isPlayingCell0 = true;
                         break;
-                        case 1:
-                isPlayingCell1 = true;
+                    case 1:
+                        isPlayingCell1 = true;
                         break;
-                        case 2:
-                isPlayingCell2 = true;
+                    case 2:
+                        isPlayingCell2 = true;
                         break;
-                        case 3:
-                isPlayingCell3 = true;
+                    case 3:
+                        isPlayingCell3 = true;
                         break;
-                        default:
+                    default:
                         break;
                 }
             }
@@ -343,16 +349,18 @@ BOOL isWaitingForPlayer = false;
     info = [MPNowPlayingInfoCenter defaultCenter];
     FIRRemoteConfig *remoteConfig = [FIRRemoteConfig remoteConfig];
     UIButton *button = (UIButton *)sender;
-
+    
     if (isPlaying1) {
         [self stopRadio];
-      
+        
     } else {
-        if (remoteConfig[controlCenterEnabled].boolValue){
+        if (remoteConfig[controlCenter_CV_Enabled].boolValue){
             //firebase wrapper for background controller
             [playCommand1 addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent *event) {
                 [player play];
                 [self changeButtonImg:button name:@"stop.png"];
+                [Answers logCustomEventWithName:@"Control Control Play Accessed" customAttributes:@{@"Category":@"BackgroundControl",@"Length":@350}];
+
                 return MPRemoteCommandHandlerStatusSuccess;
                 //command handler  gets access to playRadio function, in background, lockscreen and control center
             }];
@@ -363,24 +371,25 @@ BOOL isWaitingForPlayer = false;
         [self changeButtonImg:button name:@"stop.png"];
         //[Answers logCustomEventWithName:@"Salinas Was Played" customAttributes:@{@"Category":@"Radio Stations", @"Length":@350}];
         [self playRadioCell: RADIO_URLS[lastPlayedIndex]: sender];
-        [newInfo setObject:RADIO_TITLE[lastPlayedIndex] forKey:MPMediaItemPropertyTitle];
-        //[newInfo setObject:RADIO_URLS[lastPlayedIndex] forKey:MPMediaItemPropertyArtist];
-        //adds link to source, but it can be ignored.
-
-        info.nowPlayingInfo = newInfo;
-
-        if (remoteConfig[controlCenterEnabled].boolValue){
+        
+        if (remoteConfig[controlCenter_CV_Enabled].boolValue){
+            [newInfo setObject:RADIO_TITLE[lastPlayedIndex] forKey:MPMediaItemPropertyTitle];
+            //[newInfo setObject:RADIO_URLS[lastPlayedIndex] forKey:MPMediaItemPropertyArtist];
+            //adds link to source, but it can be ignored.
+            info.nowPlayingInfo = newInfo;
             //firebase wrapper for background controller
             [pauseCommand1 addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent *event) {
                 [self stopRadio];
                 [self changeButtonImg:button name:@"play.png"];
+                    [Answers logCustomEventWithName:@"Control Center Pause Accessed" customAttributes:@{@"Category":@"BackgroundControl",@"Length":@350}];
                 return MPRemoteCommandHandlerStatusSuccess;
                 //command handler  gets access to stopRadio function, in background, lockscreen and control center
             }];
-        }
-        [self changeRadioStation:sender] ;
         
-  
+        [self changeRadioStation:sender] ;
+        }
+        
+        
     }
 }
 - (void)changeRadioStation:(id)sender {
@@ -398,15 +407,13 @@ BOOL isWaitingForPlayer = false;
         
         info.nowPlayingInfo = newInfo;
         
-        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:lastPlayedIndex inSection:lastPlayedIndex];
-        radioCollectionViewCell * cell = (radioCollectionViewCell *) [_radioCollectionView cellForItemAtIndexPath:indexPath];
-        cell.playButton.tag = indexPath.row;
-        [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
-
+        //        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:lastPlayedIndex inSection:lastPlayedIndex];
+        //        radioCollectionViewCell * cell = (radioCollectionViewCell *) [_radioCollectionView cellForItemAtIndexPath:indexPath];
+        //        cell.playButton.tag = indexPath.row;
+        //        [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
+        
         return MPRemoteCommandHandlerStatusSuccess;
     }];
-    
-
 }
 
 - (void)routeChange:(NSNotification*)notification {

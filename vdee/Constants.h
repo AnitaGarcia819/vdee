@@ -15,4 +15,5 @@ extern NSString *const loadingMessageConfigKey;
 extern NSString *const loadingMessageCapsConfigKey;
 extern NSString *const tabViewEnabledConfigKey;
 extern NSString *const controlCenterEnabled;
+extern NSString *const controlCenter_CV_Enabled;
 @end
